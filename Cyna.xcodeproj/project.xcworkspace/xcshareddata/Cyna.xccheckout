@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2AED3D55-B7AF-42AD-8307-8996D3F32408</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Cyna</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</key>
+		<string>https://github.com/rsickles/Cyna.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Cyna.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rsickles/Cyna.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Cyna</string>
+		</dict>
+	</array>
+</dict>
+</plist>
