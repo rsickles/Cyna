@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */; };
+		92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03441ACB8BFD007D8DFB /* ViewController.swift */; };
+		92AB03481ACB8BFD007D8DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92AB03461ACB8BFD007D8DFB /* Main.storyboard */; };
+		92AB034A1ACB8BFD007D8DFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB03491ACB8BFD007D8DFB /* Images.xcassets */; };
+		92AB034D1ACB8BFD007D8DFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AB034B1ACB8BFD007D8DFB /* LaunchScreen.xib */; };
+		92AB03591ACB8BFD007D8DFB /* CynaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03581ACB8BFD007D8DFB /* CynaTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92AB03531ACB8BFD007D8DFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92AB03351ACB8BFD007D8DFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92AB033C1ACB8BFD007D8DFB;
+			remoteInfo = Cyna;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92AB033D1ACB8BFD007D8DFB /* Cyna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyna.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AB03411ACB8BFD007D8DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92AB03441ACB8BFD007D8DFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92AB03471ACB8BFD007D8DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92AB03491ACB8BFD007D8DFB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		92AB034C1ACB8BFD007D8DFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		92AB03521ACB8BFD007D8DFB /* CynaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CynaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92AB03571ACB8BFD007D8DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92AB03581ACB8BFD007D8DFB /* CynaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CynaTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92AB033A1ACB8BFD007D8DFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AB034F1ACB8BFD007D8DFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92AB03341ACB8BFD007D8DFB = {
+			isa = PBXGroup;
+			children = (
+				92AB033F1ACB8BFD007D8DFB /* Cyna */,
+				92AB03551ACB8BFD007D8DFB /* CynaTests */,
+				92AB033E1ACB8BFD007D8DFB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92AB033E1ACB8BFD007D8DFB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92AB033D1ACB8BFD007D8DFB /* Cyna.app */,
+				92AB03521ACB8BFD007D8DFB /* CynaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92AB033F1ACB8BFD007D8DFB /* Cyna */ = {
+			isa = PBXGroup;
+			children = (
+				92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */,
+				92AB03441ACB8BFD007D8DFB /* ViewController.swift */,
+				92AB03461ACB8BFD007D8DFB /* Main.storyboard */,
+				92AB03491ACB8BFD007D8DFB /* Images.xcassets */,
+				92AB034B1ACB8BFD007D8DFB /* LaunchScreen.xib */,
+				92AB03401ACB8BFD007D8DFB /* Supporting Files */,
+			);
+			path = Cyna;
+			sourceTree = "<group>";
+		};
+		92AB03401ACB8BFD007D8DFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				92AB03411ACB8BFD007D8DFB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92AB03551ACB8BFD007D8DFB /* CynaTests */ = {
+			isa = PBXGroup;
+			children = (
+				92AB03581ACB8BFD007D8DFB /* CynaTests.swift */,
+				92AB03561ACB8BFD007D8DFB /* Supporting Files */,
+			);
+			path = CynaTests;
+			sourceTree = "<group>";
+		};
+		92AB03561ACB8BFD007D8DFB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				92AB03571ACB8BFD007D8DFB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92AB033C1ACB8BFD007D8DFB /* Cyna */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92AB035C1ACB8BFD007D8DFB /* Build configuration list for PBXNativeTarget "Cyna" */;
+			buildPhases = (
+				92AB03391ACB8BFD007D8DFB /* Sources */,
+				92AB033A1ACB8BFD007D8DFB /* Frameworks */,
+				92AB033B1ACB8BFD007D8DFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cyna;
+			productName = Cyna;
+			productReference = 92AB033D1ACB8BFD007D8DFB /* Cyna.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92AB03511ACB8BFD007D8DFB /* CynaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92AB035F1ACB8BFD007D8DFB /* Build configuration list for PBXNativeTarget "CynaTests" */;
+			buildPhases = (
+				92AB034E1ACB8BFD007D8DFB /* Sources */,
+				92AB034F1ACB8BFD007D8DFB /* Frameworks */,
+				92AB03501ACB8BFD007D8DFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92AB03541ACB8BFD007D8DFB /* PBXTargetDependency */,
+			);
+			name = CynaTests;
+			productName = CynaTests;
+			productReference = 92AB03521ACB8BFD007D8DFB /* CynaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92AB03351ACB8BFD007D8DFB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = sickles.ryan;
+				TargetAttributes = {
+					92AB033C1ACB8BFD007D8DFB = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					92AB03511ACB8BFD007D8DFB = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 92AB033C1ACB8BFD007D8DFB;
+					};
+				};
+			};
+			buildConfigurationList = 92AB03381ACB8BFD007D8DFB /* Build configuration list for PBXProject "Cyna" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92AB03341ACB8BFD007D8DFB;
+			productRefGroup = 92AB033E1ACB8BFD007D8DFB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92AB033C1ACB8BFD007D8DFB /* Cyna */,
+				92AB03511ACB8BFD007D8DFB /* CynaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92AB033B1ACB8BFD007D8DFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AB03481ACB8BFD007D8DFB /* Main.storyboard in Resources */,
+				92AB034D1ACB8BFD007D8DFB /* LaunchScreen.xib in Resources */,
+				92AB034A1ACB8BFD007D8DFB /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AB03501ACB8BFD007D8DFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92AB03391ACB8BFD007D8DFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */,
+				92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92AB034E1ACB8BFD007D8DFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92AB03591ACB8BFD007D8DFB /* CynaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92AB03541ACB8BFD007D8DFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92AB033C1ACB8BFD007D8DFB /* Cyna */;
+			targetProxy = 92AB03531ACB8BFD007D8DFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92AB03461ACB8BFD007D8DFB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92AB03471ACB8BFD007D8DFB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92AB034B1ACB8BFD007D8DFB /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92AB034C1ACB8BFD007D8DFB /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92AB035A1ACB8BFD007D8DFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92AB035B1ACB8BFD007D8DFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92AB035D1ACB8BFD007D8DFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Cyna/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		92AB035E1ACB8BFD007D8DFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Cyna/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		92AB03601ACB8BFD007D8DFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CynaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cyna.app/Cyna";
+			};
+			name = Debug;
+		};
+		92AB03611ACB8BFD007D8DFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CynaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cyna.app/Cyna";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92AB03381ACB8BFD007D8DFB /* Build configuration list for PBXProject "Cyna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AB035A1ACB8BFD007D8DFB /* Debug */,
+				92AB035B1ACB8BFD007D8DFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92AB035C1ACB8BFD007D8DFB /* Build configuration list for PBXNativeTarget "Cyna" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AB035D1ACB8BFD007D8DFB /* Debug */,
+				92AB035E1ACB8BFD007D8DFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		92AB035F1ACB8BFD007D8DFB /* Build configuration list for PBXNativeTarget "CynaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92AB03601ACB8BFD007D8DFB /* Debug */,
+				92AB03611ACB8BFD007D8DFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92AB03351ACB8BFD007D8DFB /* Project object */;
+}
