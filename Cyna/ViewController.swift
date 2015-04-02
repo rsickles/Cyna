@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.viewDidLoad()
+        let testObject = PFObject(className: "TEST")
+        testObject["foo"] = "bar"
+        testObject.saveInBackgroundWithBlock { (result:Bool, error: NSError!) -> Void in
+            //
+        }
         if((FBSDKAccessToken.currentAccessToken()) != nil){
             //User is logged in, do work such as go to next view controller.
         }
