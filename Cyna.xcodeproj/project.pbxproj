@@ -13,6 +13,7 @@
 		92AB034A1ACB8BFD007D8DFB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92AB03491ACB8BFD007D8DFB /* Images.xcassets */; };
 		92AB034D1ACB8BFD007D8DFB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92AB034B1ACB8BFD007D8DFB /* LaunchScreen.xib */; };
 		92AB03591ACB8BFD007D8DFB /* CynaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03581ACB8BFD007D8DFB /* CynaTests.swift */; };
+		92AB03661ACB9899007D8DFB /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03651ACB9899007D8DFB /* App.m */; };
 		D6B2B540148D1ED48FF9352A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6DA47CABF2D4973E0F9A64 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 		92AB03521ACB8BFD007D8DFB /* CynaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CynaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AB03571ACB8BFD007D8DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92AB03581ACB8BFD007D8DFB /* CynaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CynaTests.swift; sourceTree = "<group>"; };
+		92AB03641ACB9898007D8DFB /* Cyna-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cyna-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		92AB03651ACB9899007D8DFB /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App.m; path = ../App.m; sourceTree = "<group>"; };
 		AC43AE708B63C65542517208 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF9C5EE7813F0EF2A7B89B3B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */,
+				92AB03641ACB9898007D8DFB /* Cyna-Bridging-Header.h */,
+				92AB03651ACB9899007D8DFB /* App.m */,
 				92AB03441ACB8BFD007D8DFB /* ViewController.swift */,
 				92AB03461ACB8BFD007D8DFB /* Main.storyboard */,
 				92AB03491ACB8BFD007D8DFB /* Images.xcassets */,
@@ -271,6 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AB03661ACB9899007D8DFB /* App.m in Sources */,
 				92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */,
 				92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */,
 			);
@@ -396,9 +402,12 @@
 			baseConfigurationReference = AC43AE708B63C65542517208 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Cyna/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cyna-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -407,9 +416,11 @@
 			baseConfigurationReference = EF9C5EE7813F0EF2A7B89B3B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Cyna/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Cyna-Bridging-Header.h";
 			};
 			name = Release;
 		};
