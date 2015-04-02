@@ -14,19 +14,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         super.viewDidLoad()
         if((FBSDKAccessToken.currentAccessToken()) != nil){
-            // User is logged in, do work such as go to next view controller.
-//        } else {
-//            //must log user in
-//            let login = FBSDKLoginManager.alloc()
-//            let permissions = ["email"]
-//            login.logInWithReadPermissions(permissions, handler: { (result:FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
-//                print(result)
-//            })
+            //User is logged in, do work such as go to next view controller.
         }
         
     }
     
     
+    @IBAction func loginWithFacebook(sender: UIButton) {
+        let login = FBSDKLoginManager.alloc()
+        let permissions = ["email"]
+        login.logInWithReadPermissions(permissions, handler: { (result:FBSDKLoginManagerLoginResult!, error: NSError!) -> Void in
+            print(result)
+        })
+    }
+
+    @IBOutlet var loginButton: UIButton!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
