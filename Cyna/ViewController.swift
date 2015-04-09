@@ -15,12 +15,20 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if((FBSDKAccessToken.currentAccessToken()) != nil){
-            //User is logged in, then just go to view controller
-            //self.goToHomeScreen()
+        var currentUser = PFUser.currentUser()
+        if(FBSDKAccessToken.currentAccessToken() != nil){
+            //check if user is active
+            if (currentUser != nil) {
+                self.user_is_active({ (active:Bool) -> () in
+                    if(active){
+                        self.goToHomeScreen()
+                    }else {
+                        println("You are Inactive")
+                    }
+                })
+            }
         }
-    }
-    
+}
     
     @IBAction func loginWithFacebook(sender: UIButton) {
         let login = FBSDKLoginManager.alloc()
@@ -55,10 +63,8 @@ class ViewController: UIViewController {
             var userID = result.objectForKey("id") as NSString
             var facebookProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
             user["profile_picture"] = facebookProfileUrl
-            var account = PFObject(className:"Account")
-            account["account_active"] = true
-            account["account_type"] = "user"
-            user["parent"] = account
+            user["account_active"] = true
+            user["account_type"] = "user"
             user.saveInBackground()
         }
     }
@@ -71,6 +77,19 @@ class ViewController: UIViewController {
     func goToHomeScreen(){
         let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView") as CameraViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
+    }
+    
+    func user_is_active(completion:(Bool) -> ()) {
+        var currentUser = PFUser.currentUser()
+        var query = PFUser.query()
+        query.getObjectInBackgroundWithId(currentUser.objectId) { (result:PFObject!, error:NSError!) -> Void in
+            if(result.objectForKey("account_active") as Bool == true) {
+                completion(true)
+            }
+            else {
+            completion(false)
+            }
+        }
     }
 
     @IBOutlet var loginButton: UIButton!
