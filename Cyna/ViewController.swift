@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                     if(active){
                         self.goToHomeScreen()
                     }else {
-                        println("You are Inactive")
+                        //wait for user to try to login then flash alert
                     }
                 })
             }
@@ -31,9 +31,18 @@ class ViewController: UIViewController {
 }
     
     @IBAction func loginWithFacebook(sender: UIButton) {
+        self.user_is_active({ (active:Bool) -> () in
+            if(active){
+                self.loginUser()
+            } else {
+                self.show_inactive_alert()
+            }
+        })
+    }
+    
+    func loginUser(){
         let login = FBSDKLoginManager.alloc()
         let permissions = ["email"]
-        
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, {
             (user: PFUser!, error: NSError!) -> Void in
             println(user)
@@ -42,14 +51,12 @@ class ViewController: UIViewController {
                     self.create_new_user(user)
                     self.setUpProfile()
                 } else {
-                    println("User logged in through Facebook!")
                     self.goToHomeScreen()
                 }
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
         })
-
     }
     
     func create_new_user(user:PFUser) {
@@ -90,6 +97,12 @@ class ViewController: UIViewController {
             completion(false)
             }
         }
+    }
+    
+    func show_inactive_alert(){
+        var alert = UIAlertController(title: "Hey", message: "You are inactive", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 
     @IBOutlet var loginButton: UIButton!
