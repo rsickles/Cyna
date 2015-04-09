@@ -19,8 +19,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-G5-FFC">
                                 <rect key="frame" x="227" y="550" width="146" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="2Vg-9O-T3a"/>
-                                    <constraint firstAttribute="width" constant="146" id="WIh-V6-eti"/>
+                                    <constraint firstAttribute="width" constant="146" id="Jw2-aa-UUK"/>
+                                    <constraint firstAttribute="height" constant="30" id="gCi-WL-fHA"/>
                                 </constraints>
                                 <state key="normal" title="Login With Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -32,8 +32,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sPj-G5-FFC" secondAttribute="bottom" constant="20" id="9Hc-7l-hhE"/>
-                            <constraint firstAttribute="centerX" secondItem="sPj-G5-FFC" secondAttribute="centerX" id="abX-fu-csk"/>
+                            <constraint firstAttribute="centerX" secondItem="sPj-G5-FFC" secondAttribute="centerX" id="9Gh-ob-mXT"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sPj-G5-FFC" secondAttribute="bottom" constant="20" id="Mur-41-tNp"/>
                         </constraints>
                     </view>
                     <connections>
@@ -42,11 +42,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-338" y="315"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="Yeg-vM-XXE">
             <objects>
-                <viewController id="H05-pc-mWs" sceneMemberID="viewController">
+                <viewController id="H05-pc-mWs" customClass="CameraViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pYz-BA-WbK"/>
                         <viewControllerLayoutGuide type="bottom" id="gkt-n6-Idk"/>
