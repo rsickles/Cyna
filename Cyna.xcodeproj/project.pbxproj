@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9200A5941AD029540007F03A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200A5931AD029540007F03A /* CameraViewController.swift */; };
+		922B72611AD627C20052F3E5 /* ProfileSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B72601AD627C20052F3E5 /* ProfileSetUpViewController.swift */; };
 		92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */; };
 		92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03441ACB8BFD007D8DFB /* ViewController.swift */; };
 		92AB03481ACB8BFD007D8DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92AB03461ACB8BFD007D8DFB /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		5A6DA47CABF2D4973E0F9A64 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9200A5931AD029540007F03A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		922B72601AD627C20052F3E5 /* ProfileSetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetUpViewController.swift; sourceTree = "<group>"; };
 		92AB033D1ACB8BFD007D8DFB /* Cyna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AB03411ACB8BFD007D8DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				92AB03651ACB9899007D8DFB /* App.m */,
 				92AB03441ACB8BFD007D8DFB /* ViewController.swift */,
 				9200A5931AD029540007F03A /* CameraViewController.swift */,
+				922B72601AD627C20052F3E5 /* ProfileSetUpViewController.swift */,
 				92AB03461ACB8BFD007D8DFB /* Main.storyboard */,
 				92AB03491ACB8BFD007D8DFB /* Images.xcassets */,
 				92AB034B1ACB8BFD007D8DFB /* LaunchScreen.xib */,
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92AB03661ACB9899007D8DFB /* App.m in Sources */,
+				922B72611AD627C20052F3E5 /* ProfileSetUpViewController.swift in Sources */,
 				9200A5941AD029540007F03A /* CameraViewController.swift in Sources */,
 				92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */,
 				92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */,

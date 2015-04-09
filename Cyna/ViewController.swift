@@ -12,8 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         if((FBSDKAccessToken.currentAccessToken()) != nil){
-            //User is logged in, do work such as go to next view controller.
+            //User is logged in, then just go to view controller
+            let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView") as CameraViewController
+            self.presentViewController(cameraView, animated: true, completion: nil)
         }
     }
     
@@ -34,7 +39,7 @@ class ViewController: UIViewController {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
                 FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler({ (connection:FBSDKGraphRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
                     //saving user data
-                    var user = PFObject(className: "User")
+                    var user = PFUser()
                     user["name"] = result.objectForKey("name")
                     user["first_name"] = result.objectForKey("first_name")
                     user["last_name"] = result.objectForKey("last_name")
@@ -54,6 +59,8 @@ class ViewController: UIViewController {
                             // The object has been saved.
                             //switch to home view controller
                             print("Saved User!")
+                            let profile_setup = self.storyboard?.instantiateViewControllerWithIdentifier("profile_setup") as ProfileSetUpViewController
+                            self.presentViewController(profile_setup, animated: true, completion: nil)
                             //saving account data
                         } else {
                             // There was a problem, check error.description

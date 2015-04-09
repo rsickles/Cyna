@@ -47,7 +47,7 @@
         <!--Camera View Controller-->
         <scene sceneID="Yeg-vM-XXE">
             <objects>
-                <viewController id="H05-pc-mWs" customClass="CameraViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cameraView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H05-pc-mWs" customClass="CameraViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pYz-BA-WbK"/>
                         <viewControllerLayoutGuide type="bottom" id="gkt-n6-Idk"/>
@@ -55,11 +55,46 @@
                     <view key="view" contentMode="scaleToFill" id="HHe-Sr-TXi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88g-xC-txb">
+                                <rect key="frame" x="269" y="255" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="398" y="-385"/>
+        </scene>
+        <!--Profile Set Up View Controller-->
+        <scene sceneID="DOv-da-P4O">
+            <objects>
+                <viewController storyboardIdentifier="profile_setup" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tYp-do-FId" customClass="ProfileSetUpViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="itb-NM-MnI"/>
+                        <viewControllerLayoutGuide type="bottom" id="l0T-4s-GgF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LB9-Du-kgv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-kT-LLu">
+                                <rect key="frame" x="202" y="153" width="99" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Q6-6H-JJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="315"/>
         </scene>
     </scenes>
 </document>
