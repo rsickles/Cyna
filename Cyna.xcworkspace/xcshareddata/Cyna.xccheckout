@@ -12,6 +12,8 @@
 	<dict>
 		<key>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</key>
 		<string>https://github.com/rsickles/Cyna.git</string>
+		<key>C779AC94AAF26299AC2D478A5DDF7C5A40736560</key>
+		<string>https://github.com/dekatotoro/SlideMenuControllerSwift.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Cyna.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</key>
 		<string>..</string>
+		<key>C779AC94AAF26299AC2D478A5DDF7C5A40736560</key>
+		<string>../../SlideMenuControllerSwift</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/rsickles/Cyna.git</string>
@@ -35,6 +39,14 @@
 			<string>5CC6AED677ADCEFB41FAF8C65D17521BCCD642FD</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Cyna</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C779AC94AAF26299AC2D478A5DDF7C5A40736560</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SlideMenuControllerSwift</string>
 		</dict>
 	</array>
 </dict>

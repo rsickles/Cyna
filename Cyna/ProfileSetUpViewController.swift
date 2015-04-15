@@ -31,5 +31,12 @@ class ProfileSetUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var userPhone: UILabel!
+    @IBOutlet weak var profileText: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
+    
 
 }
