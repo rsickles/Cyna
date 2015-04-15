@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-338" y="315"/>
+            <point key="canvasLocation" x="-286" y="315"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="Yeg-vM-XXE">
@@ -59,7 +59,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Camera Page" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88g-xC-txb">
                                 <rect key="frame" x="269" y="255" width="105" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -68,7 +68,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="-385"/>
+            <point key="canvasLocation" x="224" y="-407"/>
         </scene>
         <!--Profile Set Up View Controller-->
         <scene sceneID="DOv-da-P4O">
@@ -85,7 +85,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-kT-LLu">
                                 <rect key="frame" x="208" y="28" width="99" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular" fixedFrame="YES">
                                     <rect key="frame" x="207" y="38" width="99" height="21"/>
@@ -147,6 +147,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q6-6H-JJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="409" y="303.75"/>
+        </scene>
+        <!--Rate View Controller-->
+        <scene sceneID="aNt-WS-abz">
+            <objects>
+                <viewController id="JAn-hn-ZWD" customClass="RateViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OtY-bj-tUv"/>
+                        <viewControllerLayoutGuide type="bottom" id="fXS-fp-rFB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fs9-iM-Zh2" customClass="RateView" customModule="Cyna" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3x-FJ-cdI" customClass="RateView" customModule="Cyna" customModuleProvider="target">
+                                <rect key="frame" x="63" y="87" width="474" height="84"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-rY-N3H">
+                                <rect key="frame" x="251" y="327" width="98" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="JfX-H9-wCc"/>
+                                    <constraint firstAttribute="width" constant="98" id="OdO-eo-OCL"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="X3x-FJ-cdI" secondAttribute="bottom" constant="429" id="8ym-Ts-qF1"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="leading" secondItem="fs9-iM-Zh2" secondAttribute="leadingMargin" constant="47" id="E8s-dZ-adE"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="67" id="Xz0-it-e8J"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="centerX" secondItem="oGB-rY-N3H" secondAttribute="centerX" id="ZHY-wb-o1Q"/>
+                            <constraint firstItem="fXS-fp-rFB" firstAttribute="top" secondItem="oGB-rY-N3H" secondAttribute="bottom" constant="217" id="hnr-8k-7XL"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="centerX" secondItem="fs9-iM-Zh2" secondAttribute="centerX" id="zi9-qt-skx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ratingView" destination="X3x-FJ-cdI" id="Sry-O5-N3Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fV1-3p-JP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="360" y="1076"/>
+>>>>>>> 2332c4623b78eef3d69d2404771eed4435f41ef8
         </scene>
     </scenes>
 </document>

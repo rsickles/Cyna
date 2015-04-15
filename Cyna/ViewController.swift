@@ -43,8 +43,7 @@ class ViewController: UIViewController {
     func loginUser(){
         let login = FBSDKLoginManager.alloc()
         let permissions = ["email"]
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, {
-            (user: PFUser!, error: NSError!) -> Void in
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) { (user:PFUser?, error:NSError?) -> Void in
             println(user)
             if let user = user {
                 if user.isNew {
@@ -56,18 +55,19 @@ class ViewController: UIViewController {
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
-        })
-    }
+
+        }
+}
     
     func create_new_user(user:PFUser) {
         FBSDKGraphRequest(graphPath: "me", parameters: nil).startWithCompletionHandler { (connection:FBSDKGraphRequestConnection!, result:AnyObject!, error:NSError!) -> Void in
-            user.email = result.objectForKey("email") as String
+            user.email = result.objectForKey("email") as? String
             user["name"] = result.objectForKey("name")
             user["first_name"] = result.objectForKey("first_name")
             user["last_name"] = result.objectForKey("last_name")
             user["gender"] = result.objectForKey("gender")
             user["email"] = result.objectForKey("email")
-            var userID = result.objectForKey("id") as NSString
+            var userID = result.objectForKey("id")as! NSString
             var facebookProfileUrl = "http://graph.facebook.com/\(userID)/picture?type=large"
             user["profile_picture"] = facebookProfileUrl
             user["account_active"] = true
@@ -77,27 +77,29 @@ class ViewController: UIViewController {
     }
     
     func setUpProfile(){
-        let profile_setup = self.storyboard?.instantiateViewControllerWithIdentifier("profile_setup") as ProfileSetUpViewController
+        let profile_setup = self.storyboard?.instantiateViewControllerWithIdentifier("profile_setup") as! ProfileSetUpViewController
         self.presentViewController(profile_setup, animated: true, completion: nil)
     }
     
     func goToHomeScreen(){
-        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView") as CameraViewController
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView")as! CameraViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
     }
     
     func user_is_active(completion:(Bool) -> ()) {
         var currentUser = PFUser.currentUser()
         var query = PFUser.query()
-        query.getObjectInBackgroundWithId(currentUser.objectId) { (result:PFObject!, error:NSError!) -> Void in
-            if(result.objectForKey("account_active") as Bool == true) {
-                completion(true)
-            }
-            else {
-            completion(false)
-            }
-        }
-    }
+        query?.getObjectInBackgroundWithId("1", block: { (result:PFObject?, error:NSError?) -> Void in
+            //code
+            if(result!.objectForKey("account_active") as! Bool == true) {
+                                completion(true)
+                            }
+                            else {
+                                completion(false)
+                            }
+
+        })
+           }
     
     func show_inactive_alert(){
         var alert = UIAlertController(title: "Hey", message: "You are inactive", preferredStyle: UIAlertControllerStyle.Alert)
