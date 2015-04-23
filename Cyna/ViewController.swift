@@ -13,31 +13,35 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    var inactive_status = false
     
     override func viewDidAppear(animated: Bool) {
         var currentUser = PFUser.currentUser()
+        println("ONE");
         if(FBSDKAccessToken.currentAccessToken() != nil){
+            println("TWO");
             //check if user is active
             if (currentUser != nil) {
+                println("HERE");
                 self.user_is_active({ (active:Bool) -> () in
                     if(active){
                         self.goToHomeScreen()
                     }else {
                         //wait for user to try to login then flash alert
+                        self.inactive_status = true;
                     }
                 })
             }
         }
 }
     
+    
     @IBAction func loginWithFacebook(sender: UIButton) {
-        self.user_is_active({ (active:Bool) -> () in
-            if(active){
-                self.loginUser()
-            } else {
-                self.show_inactive_alert()
-            }
-        })
+        if(self.inactive_status==true) {
+            self.show_inactive_alert()
+        } else {
+            self.loginUser()
+        }
     }
     
     func loginUser(){
@@ -88,8 +92,9 @@ class ViewController: UIViewController {
     
     func user_is_active(completion:(Bool) -> ()) {
         var currentUser = PFUser.currentUser()
+        println(currentUser?.objectId);
         var query = PFUser.query()
-        query?.getObjectInBackgroundWithId("1", block: { (result:PFObject?, error:NSError?) -> Void in
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
             //code
             if(result!.objectForKey("account_active") as! Bool == true) {
                                 completion(true)
