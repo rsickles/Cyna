@@ -12,7 +12,7 @@ class ProfileSetUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.retrieveUserInformation()
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +21,18 @@ class ProfileSetUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func retrieveUserInformation(){
+        var currentUser = PFUser.currentUser()
+        println(currentUser?.objectId);
+        var query = PFUser.query()
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
+            //code
+            println(result)
+            self.userName.text = result?.objectForKey("name") as? String
+            self.userEmail.text = result?.objectForKey("email") as? String
+            self.userPhone.text = result?.objectForKey("phone") as? String
+        })
+    }
 
     /*
     // MARK: - Navigation
@@ -37,6 +49,7 @@ class ProfileSetUpViewController: UIViewController {
     @IBOutlet weak var userPhone: UILabel!
     @IBOutlet weak var profileText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
+
     
 
 }
