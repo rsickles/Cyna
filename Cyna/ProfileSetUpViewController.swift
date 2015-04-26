@@ -31,6 +31,10 @@ class ProfileSetUpViewController: UIViewController {
             self.userName.text = result?.objectForKey("name") as? String
             self.userEmail.text = result?.objectForKey("email") as? String
             self.userPhone.text = result?.objectForKey("phone") as? String
+            var imagePath: String = "https://graph.facebook.com/"
+            imagePath = (result?.objectForKey("profile_picture") as? String)!
+            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath)!)!)
+            self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
         })
     }
 
