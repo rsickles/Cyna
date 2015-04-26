@@ -12,6 +12,7 @@
 		9200A5941AD029540007F03A /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9200A5931AD029540007F03A /* CameraViewController.swift */; };
 		922B72611AD627C20052F3E5 /* ProfileSetUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922B72601AD627C20052F3E5 /* ProfileSetUpViewController.swift */; };
 		922B72631AD6E4600052F3E5 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922B72621AD6E4600052F3E5 /* ParseFacebookUtilsV4.framework */; };
+		922DF6AC1AED7A4700F3D5F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 922DF6AB1AED7A4700F3D5F1 /* AVFoundation.framework */; };
 		92AB03431ACB8BFD007D8DFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */; };
 		92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AB03441ACB8BFD007D8DFB /* ViewController.swift */; };
 		92AB03481ACB8BFD007D8DFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92AB03461ACB8BFD007D8DFB /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		9200A5931AD029540007F03A /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		922B72601AD627C20052F3E5 /* ProfileSetUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSetUpViewController.swift; sourceTree = "<group>"; };
 		922B72621AD6E4600052F3E5 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		922DF6AB1AED7A4700F3D5F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		92AB033D1ACB8BFD007D8DFB /* Cyna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cyna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AB03411ACB8BFD007D8DFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92AB03421ACB8BFD007D8DFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922DF6AC1AED7A4700F3D5F1 /* AVFoundation.framework in Frameworks */,
 				92AB037C1ACDBBEB007D8DFB /* libsqlite3.dylib in Frameworks */,
 				92AB037A1ACDBBE1007D8DFB /* libz.dylib in Frameworks */,
 				92AB03781ACDBBDA007D8DFB /* SystemConfiguration.framework in Frameworks */,
@@ -120,6 +123,7 @@
 		6FD1067F89591173B721FF01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				922DF6AB1AED7A4700F3D5F1 /* AVFoundation.framework */,
 				922B72621AD6E4600052F3E5 /* ParseFacebookUtilsV4.framework */,
 				92AB037B1ACDBBEB007D8DFB /* libsqlite3.dylib */,
 				92AB03791ACDBBE1007D8DFB /* libz.dylib */,
