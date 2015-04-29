@@ -5,3 +5,6 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <Parse/Parse.h>
+#import <LocalStorageService.h>
+#import <DialogsViewController.h>
+#import <ChatViewController.h>
