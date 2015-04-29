@@ -45,7 +45,29 @@
             </objects>
             <point key="canvasLocation" x="-286" y="315"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--RevealViewController-->
+        <scene sceneID="L7P-uN-zfP">
+            <objects>
+                <viewController storyboardIdentifier="revealController" title="RevealViewController" id="gc5-Lm-CMy" customClass="SWRevealViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hFX-1q-2qd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tll-XA-28w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bPm-9w-iPu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="4Ic-F5-TFA" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="QPC-qy-H3v"/>
+                        <segue destination="bR8-DZ-ckq" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="AKt-WQ-UFD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TGe-MU-e3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-302" y="-1233"/>
+        </scene>
+        <!--Camera-->
         <scene sceneID="Yeg-vM-XXE">
             <objects>
                 <viewController storyboardIdentifier="cameraView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H05-pc-mWs" customClass="CameraViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,43 +111,10 @@
                                     <barButtonItem width="281" style="plain" systemItem="fixedSpace" id="bo4-8t-NBZ"/>
                                 </items>
                             </toolbar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNz-bK-vqH">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="YEM-eo-rXv"/>
-                                    <constraint firstAttribute="height" constant="44" id="xvp-nK-xXy"/>
-                                </constraints>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <navigationItem title="Camera" id="afQ-UA-MP4">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="k4h-0R-R6K">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AJ1-Oc-Nsv">
-                                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Menu">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="6dK-K0-vDs">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NnQ-P6-sgo">
-                                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Chat">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HNz-bK-vqH" firstAttribute="top" secondItem="pYz-BA-WbK" secondAttribute="bottom" id="3Fy-Xr-yf5"/>
                             <constraint firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="FHj-RG-GEY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HNz-bK-vqH" secondAttribute="trailing" constant="-16" id="IsW-sf-xLc"/>
-                            <constraint firstItem="HNz-bK-vqH" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="M6D-vB-OkZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rlr-5v-72j" secondAttribute="trailing" constant="-16" id="WMG-co-gC6"/>
                             <constraint firstItem="ste-q8-n4N" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="ahl-Zn-nOy"/>
                             <constraint firstItem="rlr-5v-72j" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="dFy-YM-Ikd"/>
@@ -135,14 +124,61 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Camera" id="ufn-G1-37W">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="KEv-N6-6V4"/>
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="1aI-DS-eg7"/>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
+                        <outlet property="open" destination="KEv-N6-6V4" id="mfg-pq-Oh1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="224" y="-407"/>
+            <point key="canvasLocation" x="1150" y="-1233"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="daX-aO-oQK">
+            <objects>
+                <navigationController id="bR8-DZ-ckq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Waf-GS-uYw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="H05-pc-mWs" kind="relationship" relationship="rootViewController" id="8mg-nW-zuS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIc-L3-vOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="-1251"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="zr2-Y2-wwJ">
+            <objects>
+                <tableViewController id="4Ic-F5-TFA" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qPK-wV-aaA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6Up-ER-jDy">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Up-ER-jDy" id="kQn-Nl-Xsb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4Ic-F5-TFA" id="YQL-9p-hy8"/>
+                            <outlet property="delegate" destination="4Ic-F5-TFA" id="6MV-Fe-8Nw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VOq-CO-aPi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="436" y="-493"/>
         </scene>
         <!--Profile Set Up View Controller-->
         <scene sceneID="DOv-da-P4O">

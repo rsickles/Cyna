@@ -7,3 +7,4 @@
 #import <Parse/Parse.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ImageIO/ImageIO.h>
+#import "SWRevealViewController.h"

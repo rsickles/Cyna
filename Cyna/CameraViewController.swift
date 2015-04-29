@@ -14,6 +14,7 @@ class CameraViewController: UIViewController {
     var videoInput:AVCaptureInput!
     var stillImageOutput:AVCaptureStillImageOutput!
     
+    @IBOutlet var open: UIBarButtonItem!
     //@IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraView: UIView!
     
@@ -24,6 +25,12 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
+        
+        //side menu stuff
+        open.target = self.revealViewController()
+        open.action = Selector("revealToggle:")
+        
+        
         self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
         //check for device lock

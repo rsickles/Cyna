@@ -88,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     func goToHomeScreen(){
-        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView") as! CameraViewController
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("revealController") as! SWRevealViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
     }
     
