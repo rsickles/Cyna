@@ -21,16 +21,19 @@ class CameraViewController: UIViewController {
     
     // If we find a device we'll store it here for later use
     var captureDevice : AVCaptureDevice?
-    
+    var varView = Int()
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         
+        
         //side menu stuff
         open.target = self.revealViewController()
         open.action = Selector("revealToggle:")
-        
-        
+        if(varView == 0){
+            //log out of app 
+        }
+        //
         self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         
         //check for device lock
