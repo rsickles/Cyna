@@ -57,30 +57,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1SD-Fj-nh4">
-                                <rect key="frame" x="189" y="382" width="205" height="198"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1SD-Fj-nh4">
+                                <rect key="frame" x="198" y="382" width="205" height="198"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="198" id="C2E-2p-Jw9"/>
+                                    <constraint firstAttribute="width" constant="205" id="x6E-MJ-ONe"/>
+                                </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
                                 <rect key="frame" x="150" y="34" width="300" height="300"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqP-pc-gdx">
-                                        <rect key="frame" x="13" y="14" width="36" height="30"/>
-                                        <state key="normal" title="Snap">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="takePhoto:" destination="H05-pc-mWs" eventType="touchUpInside" id="sjP-rd-9KZ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="HN1-bp-JD3"/>
+                                    <constraint firstAttribute="height" constant="300" id="sBe-Dv-qhX"/>
+                                </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqP-pc-gdx">
+                                <rect key="frame" x="282" y="344" width="36" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="spM-A8-0D3"/>
+                                    <constraint firstAttribute="width" constant="36" id="z88-Jw-RfF"/>
+                                </constraints>
+                                <state key="normal" title="Snap">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePhoto:" destination="H05-pc-mWs" eventType="touchUpInside" id="bhl-Un-CUr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1SD-Fj-nh4" firstAttribute="top" secondItem="dqP-pc-gdx" secondAttribute="bottom" constant="8" id="1Iy-Yv-iAY"/>
+                            <constraint firstItem="ste-q8-n4N" firstAttribute="top" secondItem="pYz-BA-WbK" secondAttribute="bottom" constant="14" id="BnI-D8-6Q9"/>
+                            <constraint firstItem="1SD-Fj-nh4" firstAttribute="top" secondItem="dqP-pc-gdx" secondAttribute="bottom" constant="8" id="Kwl-iW-ouz"/>
+                            <constraint firstItem="gkt-n6-Idk" firstAttribute="top" secondItem="1SD-Fj-nh4" secondAttribute="bottom" constant="20" id="U3g-k2-JJd"/>
+                            <constraint firstAttribute="centerX" secondItem="1SD-Fj-nh4" secondAttribute="centerX" id="d2O-nH-IXU"/>
+                            <constraint firstItem="dqP-pc-gdx" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="bottom" constant="10" id="goN-Rg-u09"/>
+                            <constraint firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="pna-EA-H87"/>
+                            <constraint firstAttribute="centerX" secondItem="dqP-pc-gdx" secondAttribute="centerX" id="reA-Hk-AWm"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="frameForCapture" destination="ste-q8-n4N" id="j73-KS-Y72"/>
-                        <outlet property="imageView" destination="1SD-Fj-nh4" id="jVI-Mi-414"/>
+                        <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
+                        <outlet property="imageView" destination="1SD-Fj-nh4" id="yce-cD-enn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>

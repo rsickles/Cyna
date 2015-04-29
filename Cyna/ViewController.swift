@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        self.goToHomeScreen()
         super.viewDidLoad()
     }
     var inactive_status = false
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
                 println("HERE");
                 self.user_is_active({ (active:Bool) -> () in
                     if(active){
+                        println("HELLO");
                         self.goToHomeScreen()
                     }else {
                         //wait for user to try to login then flash alert
@@ -86,7 +88,7 @@ class ViewController: UIViewController {
     }
     
     func goToHomeScreen(){
-        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView")as! CameraViewController
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("cameraView") as! CameraViewController
         self.presentViewController(cameraView, animated: true, completion: nil)
     }
     

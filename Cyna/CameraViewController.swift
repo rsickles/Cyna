@@ -10,84 +10,121 @@ import UIKit
 
 class CameraViewController: UIViewController {
     
+    let captureSession = AVCaptureSession()
+    var videoInput:AVCaptureInput!
+    var stillImageOutput:AVCaptureStillImageOutput!
     
-    var session = AVCaptureSession()
-    var still_image_output = AVCaptureStillImageOutput()
-    @IBOutlet var frameForCapture: UIView!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var cameraView: UIView!
+    
+    
+    // If we find a device we'll store it here for later use
+    var captureDevice : AVCaptureDevice?
+    
+    override func viewDidLoad() {
+        // Do any additional setup after loading the view, typically from a nib.
+        super.viewDidLoad()
+        self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+
+        self.videoInput = AVCaptureDeviceInput(device: self.captureDevice, error: nil)
+        self.stillImageOutput = AVCaptureStillImageOutput()
+        
+        let devices = AVCaptureDevice.devices()
+        for device in devices {
+            if device.hasMediaType(AVMediaTypeVideo) {
+                                    println(device)
+                if device.position == AVCaptureDevicePosition.Front {
+                    self.captureDevice = (device as! AVCaptureDevice)
+                    if self.captureDevice != nil {
+                        println("Capture device found")
+                    }
+                }
+            }
+        }
+        if self.captureDevice != nil {
+            beginSession()
+        }
+}
     
     
     
+    func beginSession() {
+        //        self.stillImageOutput = AVCaptureStillImageOutput()
+        //        let output_settings = NSDictionary(objectsAndKeys: AVVideoCodecJPEG,AVVideoCodecKey)
+        //        self.stillImageOutput.outputSettings = output_settings as [NSObject : AnyObject]
+        //        //self.captureSession.addOutput(self.stillImageOutput)
+        //
+        //
+        //        self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
+        //
+        //        if err != nil {
+        //            println("error: \(err?.localizedDescription)")
+        //        }
+        //        var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+        //        previewLayer?.frame = self.cameraView.layer.bounds
+        //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        //        self.cameraView.layer.addSublayer(previewLayer)
+        //        captureSession.startRunning()
+        
+        var err : NSError? = nil
+        
+        if (self.captureSession.canAddInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))){
+            self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
+        } else {
+            println("cant add input")
+        }
+
+        self.captureSession.addOutput(self.stillImageOutput)
+        
+        self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+        if err != nil {
+            println("hhhhhhhh")
+            println("error: \(err?.localizedDescription)")
+        }
+        var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+        previewLayer?.frame = self.cameraView.layer.bounds
+        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.cameraView.layer.addSublayer(previewLayer)
+        self.captureSession.startRunning()
+    }
+
     
     @IBAction func takePhoto(sender: UIButton) {
-        var video_connection = AVCaptureConnection()
-        for connection in still_image_output.connections {
-            if let connection = AVCaptureConnection() as AVCaptureConnection! {
-            for port in connection.inputPorts {
-                if(port.mediaType == AVMediaTypeVideo){
-                    video_connection = connection
+        var videoConnection:AVCaptureConnection?
+        
+        for connection in stillImageOutput.connections {
+            for port in connection.inputPorts! {
+                if port.mediaType == AVMediaTypeVideo {
+                    videoConnection = connection as? AVCaptureConnection
                     break
                 }
             }
-//                if(video_connection != nil){
-//                    break
-//                }
+            if videoConnection != nil {
+                break
             }
         }
-        let new_connection = AVCaptureConnection()
-        still_image_output.captureStillImageAsynchronouslyFromConnection(AVCaptureConnection()); completionHandler;: { (sampledata:CMSampleBuffer!, error:NSError!) -> Void in
-            if(sampledata != nil){
-                let image_data = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampledata)
-                let image = UIImage(data: image_data)
-                self.imageView.image = image
-            }
+        
+        if videoConnection != nil {
+            stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (buffer:CMSampleBuffer!, error:NSError!) -> Void in
+                var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
+                var data_image = UIImage(data: image)
+                self.imageView.image = data_image
+                self.captureSession.stopRunning()
+            })
         }
+//        self.stillImageOutput.captureStillImageAsynchronouslyFromConnection(self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)) { (buffer:CMSampleBuffer!, error:NSError!) -> Void in
+//            var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
+//            var data_image = UIImage(data: image)
+//            self.imageView.image = data_image
+//            self.captureSession.stopRunning()
+//        }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        session.sessionPreset = AVCaptureSessionPresetPhoto
-        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        let input_device = AVCaptureDeviceInput(device: device!, error: nil)
-        if(session.canAddInput(input_device)){
-            session.addInput(input_device)
-        }
-        let preview_layer = AVCaptureVideoPreviewLayer(session: session)
-        preview_layer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        let root_layer = CALayer(layer: self.view.layer)
-        root_layer.masksToBounds = true
-        
-        let frame = self.frameForCapture.frame
-        preview_layer.frame = frame
-        root_layer.addSublayer(preview_layer)
-        
-        
-        let outputSettings = NSDictionary(objectsAndKeys: AVVideoCodecJPEG,AVVideoCodecKey)
-        still_image_output.outputSettings = outputSettings as [NSObject : AnyObject]
-        
-        session.addOutput(still_image_output)
-        
-        session.startRunning()
-    }
-
+        // captureSession.startRunning() again once we move to the next screen or the picture is dismissed
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
