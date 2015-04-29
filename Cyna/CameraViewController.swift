@@ -25,14 +25,13 @@ class CameraViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-
+        println(self.captureDevice)
         self.videoInput = AVCaptureDeviceInput(device: self.captureDevice, error: nil)
         self.stillImageOutput = AVCaptureStillImageOutput()
         
         let devices = AVCaptureDevice.devices()
         for device in devices {
             if device.hasMediaType(AVMediaTypeVideo) {
-                                    println(device)
                 if device.position == AVCaptureDevicePosition.Front {
                     self.captureDevice = (device as! AVCaptureDevice)
                     if self.captureDevice != nil {
@@ -49,43 +48,41 @@ class CameraViewController: UIViewController {
     
     
     func beginSession() {
-        //        self.stillImageOutput = AVCaptureStillImageOutput()
-        //        let output_settings = NSDictionary(objectsAndKeys: AVVideoCodecJPEG,AVVideoCodecKey)
-        //        self.stillImageOutput.outputSettings = output_settings as [NSObject : AnyObject]
-        //        //self.captureSession.addOutput(self.stillImageOutput)
-        //
-        //
-        //        self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
-        //
-        //        if err != nil {
-        //            println("error: \(err?.localizedDescription)")
-        //        }
-        //        var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        //        previewLayer?.frame = self.cameraView.layer.bounds
-        //        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        //        self.cameraView.layer.addSublayer(previewLayer)
-        //        captureSession.startRunning()
+//                self.stillImageOutput = AVCaptureStillImageOutput()
+//                let output_settings = NSDictionary(objectsAndKeys: AVVideoCodecJPEG,AVVideoCodecKey)
+//                self.stillImageOutput.outputSettings = output_settings as [NSObject : AnyObject]
+//                self.captureSession.addOutput(self.stillImageOutput)
+//        
+//                var err : NSError? = nil
+//                self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
+//        
+//                if err != nil {
+//                    println("error: \(err?.localizedDescription)")
+//                }
+//                var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+//                previewLayer?.frame = self.cameraView.layer.bounds
+//                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
+//                self.cameraView.layer.addSublayer(previewLayer)
+//                captureSession.startRunning()
         
         var err : NSError? = nil
-        
-        if (self.captureSession.canAddInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { // 1
+            self.captureSession.addOutput(self.stillImageOutput)
             self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
-        } else {
-            println("cant add input")
-        }
+            self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
+            if err != nil {
+                println("error: \(err?.localizedDescription)")
+            }
+            var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+            previewLayer?.frame = self.cameraView.layer.bounds
+            previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+            dispatch_async(dispatch_get_main_queue(), { // 2
+                        // 3
+                self.cameraView.layer.addSublayer(previewLayer)
+                self.captureSession.startRunning()
+                });
+            });
 
-        self.captureSession.addOutput(self.stillImageOutput)
-        
-        self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto
-        if err != nil {
-            println("hhhhhhhh")
-            println("error: \(err?.localizedDescription)")
-        }
-        var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-        previewLayer?.frame = self.cameraView.layer.bounds
-        previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.cameraView.layer.addSublayer(previewLayer)
-        self.captureSession.startRunning()
     }
 
     
