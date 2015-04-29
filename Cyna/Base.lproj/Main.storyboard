@@ -57,50 +57,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1SD-Fj-nh4">
-                                <rect key="frame" x="198" y="382" width="205" height="198"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="198" id="C2E-2p-Jw9"/>
-                                    <constraint firstAttribute="width" constant="205" id="x6E-MJ-ONe"/>
-                                </constraints>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
-                                <rect key="frame" x="150" y="34" width="300" height="300"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="HN1-bp-JD3"/>
-                                    <constraint firstAttribute="height" constant="300" id="sBe-Dv-qhX"/>
+                                    <constraint firstAttribute="height" constant="512" id="DWr-0l-o2b"/>
+                                    <constraint firstAttribute="width" constant="600" id="LqC-88-u7d"/>
+                                    <constraint firstAttribute="height" constant="492" id="SU8-R2-ze2"/>
+                                    <constraint firstAttribute="height" constant="556" id="ggb-UE-5nb"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DWr-0l-o2b"/>
+                                        <exclude reference="ggb-UE-5nb"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqP-pc-gdx">
-                                <rect key="frame" x="282" y="344" width="36" height="30"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlr-5v-72j">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="spM-A8-0D3"/>
-                                    <constraint firstAttribute="width" constant="36" id="z88-Jw-RfF"/>
+                                    <constraint firstAttribute="width" constant="600" id="0Ri-w7-EbE"/>
+                                    <constraint firstAttribute="height" constant="44" id="C2P-z7-IKn"/>
                                 </constraints>
-                                <state key="normal" title="Snap">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="takePhoto:" destination="H05-pc-mWs" eventType="touchUpInside" id="bhl-Un-CUr"/>
-                                </connections>
-                            </button>
+                                <items>
+                                    <barButtonItem width="252" style="plain" systemItem="fixedSpace" id="twZ-MO-1lv"/>
+                                    <barButtonItem title="Snap" id="utP-Ub-hrP">
+                                        <connections>
+                                            <action selector="takePhoto:" destination="H05-pc-mWs" id="XI8-GW-Idf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="281" style="plain" systemItem="fixedSpace" id="bo4-8t-NBZ"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNz-bK-vqH">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="YEM-eo-rXv"/>
+                                    <constraint firstAttribute="height" constant="44" id="xvp-nK-xXy"/>
+                                </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <navigationItem title="Camera" id="afQ-UA-MP4">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="k4h-0R-R6K">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AJ1-Oc-Nsv">
+                                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Menu">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="6dK-K0-vDs">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NnQ-P6-sgo">
+                                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Chat">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1SD-Fj-nh4" firstAttribute="top" secondItem="dqP-pc-gdx" secondAttribute="bottom" constant="8" id="1Iy-Yv-iAY"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="top" secondItem="pYz-BA-WbK" secondAttribute="bottom" constant="14" id="BnI-D8-6Q9"/>
-                            <constraint firstItem="1SD-Fj-nh4" firstAttribute="top" secondItem="dqP-pc-gdx" secondAttribute="bottom" constant="8" id="Kwl-iW-ouz"/>
-                            <constraint firstItem="gkt-n6-Idk" firstAttribute="top" secondItem="1SD-Fj-nh4" secondAttribute="bottom" constant="20" id="U3g-k2-JJd"/>
-                            <constraint firstAttribute="centerX" secondItem="1SD-Fj-nh4" secondAttribute="centerX" id="d2O-nH-IXU"/>
-                            <constraint firstItem="dqP-pc-gdx" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="bottom" constant="10" id="goN-Rg-u09"/>
-                            <constraint firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="pna-EA-H87"/>
-                            <constraint firstAttribute="centerX" secondItem="dqP-pc-gdx" secondAttribute="centerX" id="reA-Hk-AWm"/>
+                            <constraint firstItem="HNz-bK-vqH" firstAttribute="top" secondItem="pYz-BA-WbK" secondAttribute="bottom" id="3Fy-Xr-yf5"/>
+                            <constraint firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="FHj-RG-GEY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HNz-bK-vqH" secondAttribute="trailing" constant="-16" id="IsW-sf-xLc"/>
+                            <constraint firstItem="HNz-bK-vqH" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="M6D-vB-OkZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rlr-5v-72j" secondAttribute="trailing" constant="-16" id="WMG-co-gC6"/>
+                            <constraint firstItem="ste-q8-n4N" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="ahl-Zn-nOy"/>
+                            <constraint firstItem="rlr-5v-72j" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="dFy-YM-Ikd"/>
+                            <constraint firstItem="rlr-5v-72j" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="bottom" id="hCl-N1-Wds"/>
+                            <constraint firstItem="gkt-n6-Idk" firstAttribute="top" secondItem="rlr-5v-72j" secondAttribute="bottom" id="rA7-tm-0gb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ste-q8-n4N" secondAttribute="trailing" constant="-16" id="xj8-dg-oKf"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
-                        <outlet property="imageView" destination="1SD-Fj-nh4" id="yce-cD-enn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>

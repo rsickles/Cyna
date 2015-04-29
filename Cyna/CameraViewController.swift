@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
     var videoInput:AVCaptureInput!
     var stillImageOutput:AVCaptureStillImageOutput!
     
-    @IBOutlet var imageView: UIImageView!
+    //@IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraView: UIView!
     
     
@@ -25,14 +25,23 @@ class CameraViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         self.captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        println(self.captureDevice)
+        
+        //check for device lock
+        if(self.captureDevice?.lockForConfiguration(nil) == true){
+            if((self.captureDevice?.isFocusModeSupported(AVCaptureFocusMode.AutoFocus)) != nil){
+    //            [currentDevice setFocusPointOfInterest:autofocusPoint];
+    //            let autofocusPoint = CGPointMake(0.5,0.5)
+                self.captureDevice?.focusMode = AVCaptureFocusMode.AutoFocus
+                self.captureDevice?.unlockForConfiguration()
+            }
+        }
         self.videoInput = AVCaptureDeviceInput(device: self.captureDevice, error: nil)
         self.stillImageOutput = AVCaptureStillImageOutput()
         
         let devices = AVCaptureDevice.devices()
         for device in devices {
             if device.hasMediaType(AVMediaTypeVideo) {
-                if device.position == AVCaptureDevicePosition.Front {
+                if device.position == AVCaptureDevicePosition.Back {
                     self.captureDevice = (device as! AVCaptureDevice)
                     if self.captureDevice != nil {
                         println("Capture device found")
@@ -44,27 +53,8 @@ class CameraViewController: UIViewController {
             beginSession()
         }
 }
-    
-    
-    
+
     func beginSession() {
-//                self.stillImageOutput = AVCaptureStillImageOutput()
-//                let output_settings = NSDictionary(objectsAndKeys: AVVideoCodecJPEG,AVVideoCodecKey)
-//                self.stillImageOutput.outputSettings = output_settings as [NSObject : AnyObject]
-//                self.captureSession.addOutput(self.stillImageOutput)
-//        
-//                var err : NSError? = nil
-//                self.captureSession.addInput(AVCaptureDeviceInput(device: self.captureDevice, error: &err))
-//        
-//                if err != nil {
-//                    println("error: \(err?.localizedDescription)")
-//                }
-//                var previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
-//                previewLayer?.frame = self.cameraView.layer.bounds
-//                previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill;
-//                self.cameraView.layer.addSublayer(previewLayer)
-//                captureSession.startRunning()
-        
         var err : NSError? = nil
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { // 1
             self.captureSession.addOutput(self.stillImageOutput)
@@ -82,11 +72,10 @@ class CameraViewController: UIViewController {
                 self.captureSession.startRunning()
                 });
             });
-
     }
 
     
-    @IBAction func takePhoto(sender: UIButton) {
+    @IBAction func takePhoto(sender: UIBarButtonItem) {
         var videoConnection:AVCaptureConnection?
         
         for connection in stillImageOutput.connections {
@@ -105,19 +94,13 @@ class CameraViewController: UIViewController {
             stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (buffer:CMSampleBuffer!, error:NSError!) -> Void in
                 var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
                 var data_image = UIImage(data: image)
-                self.imageView.image = data_image
+                //self.imageView.image = data_image
                 self.captureSession.stopRunning()
             })
         }
-//        self.stillImageOutput.captureStillImageAsynchronouslyFromConnection(self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)) { (buffer:CMSampleBuffer!, error:NSError!) -> Void in
-//            var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
-//            var data_image = UIImage(data: image)
-//            self.imageView.image = data_image
-//            self.captureSession.stopRunning()
-//        }
     }
     
-        // captureSession.startRunning() again once we move to the next screen or the picture is dismissed
+    // captureSession.startRunning() again once we move to the next screen or the picture is dismissed
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
