@@ -12,7 +12,7 @@ class ProfileSetUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.retrieveUserInformation()
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +21,31 @@ class ProfileSetUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func retrieveUserInformation(){
+        var currentUser = PFUser.currentUser()
+        println(currentUser?.objectId);
+        var query = PFUser.query()
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
+            //code
+            println(result)
+            self.userName.text = result?.objectForKey("name") as? String
+            self.userEmail.text = result?.objectForKey("email") as? String
+            self.userPhone.text = result?.objectForKey("phone") as? String
+            var imagePath: String = "https://graph.facebook.com/"
+            imagePath = (result?.objectForKey("profile_picture") as? String)!
+            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath)!)!)
+            self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
+            self.profileText.text =
+                result?.objectForKey("profile_information") as? String
+        })
+    }
+//    func saveTextToVar(sender: ) {
+//        var text: String?= profileText.text
+//    }
+    
+//    func saveButton(){
+//        
+//    }
     /*
     // MARK: - Navigation
 

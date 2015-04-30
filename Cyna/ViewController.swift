@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var inactive_status = false
     
     override func viewDidAppear(animated: Bool) {
+        self.setUpProfile()
         var currentUser = PFUser.currentUser()
         println("ONE");
         if(FBSDKAccessToken.currentAccessToken() != nil){
