@@ -11,23 +11,17 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
-        self.goToHomeScreen()
         super.viewDidLoad()
     }
     var inactive_status = false
     
     override func viewDidAppear(animated: Bool) {
-        self.setUpProfile()
         var currentUser = PFUser.currentUser()
-        println("ONE");
         if(FBSDKAccessToken.currentAccessToken() != nil){
-            println("TWO");
             //check if user is active
             if (currentUser != nil) {
-                println("HERE");
                 self.user_is_active({ (active:Bool) -> () in
                     if(active){
-                        println("HELLO");
                         self.goToHomeScreen()
                     }else {
                         //wait for user to try to login then flash alert
@@ -38,7 +32,9 @@ class ViewController: UIViewController {
         }
 }
     
-    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     @IBAction func loginWithFacebook(sender: UIButton) {
         if(self.inactive_status==true) {
             self.show_inactive_alert()
@@ -55,7 +51,6 @@ class ViewController: UIViewController {
             if let user = user {
                 if user.isNew {
                     self.create_new_user(user)
-                    self.setUpProfile()
                 } else {
                     self.goToHomeScreen()
                 }
@@ -110,7 +105,7 @@ class ViewController: UIViewController {
            }
     
     func show_inactive_alert(){
-        var alert = UIAlertController(title: "Hey", message: "You are inactive", preferredStyle: UIAlertControllerStyle.Alert)
+        var alert = UIAlertController(title: "Account Disabled", message: "Sorry, your account has been inactivated. Please contact customer support for more information.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
     }

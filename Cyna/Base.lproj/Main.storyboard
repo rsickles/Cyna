@@ -17,14 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="11154714_10153270935774919_205274106914562188_o" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-J8-Dlt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="11154714_10153270935774919_205274106914562188_o" translatesAutoresizingMaskIntoConstraints="NO" id="ah0-J8-Dlt">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-G5-FFC">
-                                <rect key="frame" x="204" y="519" width="240" height="61"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="146" id="Jw2-aa-UUK"/>
-                                    <constraint firstAttribute="height" constant="30" id="gCi-WL-fHA"/>
+                                    <constraint firstAttribute="width" constant="600" id="5fk-jg-yZJ"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="600" id="Lzw-gH-XkM"/>
+                                    <constraint firstAttribute="height" constant="600" id="asK-GB-QZo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="cmI-b9-gsq"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPj-G5-FFC">
+                                <rect key="frame" x="180" y="519" width="240" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="CIf-SW-Qdu"/>
+                                    <constraint firstAttribute="height" constant="61" id="h52-eU-Lhm"/>
                                 </constraints>
                                 <state key="normal" title="Login With Facebook" backgroundImage="empty_button_2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,8 +41,10 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="sPj-G5-FFC" secondAttribute="centerX" id="9Gh-ob-mXT"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sPj-G5-FFC" secondAttribute="bottom" constant="20" id="Mur-41-tNp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ah0-J8-Dlt" secondAttribute="trailing" constant="-16" id="4SW-d4-Z9w"/>
+                            <constraint firstItem="ah0-J8-Dlt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="8Gp-PV-g8S"/>
+                            <constraint firstAttribute="centerX" secondItem="sPj-G5-FFC" secondAttribute="centerX" id="GCC-8F-9DY"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sPj-G5-FFC" secondAttribute="bottom" constant="20" id="qlM-jy-eaE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -290,7 +298,7 @@
                                     <constraint firstAttribute="height" constant="208" id="k9E-1b-TMc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="208" id="xrl-vG-mg8"/>
                                 </constraints>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
