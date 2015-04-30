@@ -35,9 +35,17 @@ class ProfileSetUpViewController: UIViewController {
             imagePath = (result?.objectForKey("profile_picture") as? String)!
             self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath)!)!)
             self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
+            self.profileText.text =
+                result?.objectForKey("profile_information") as? String
         })
     }
-
+//    func saveTextToVar(sender: ) {
+//        var text: String?= profileText.text
+//    }
+    
+//    func saveButton(){
+//        
+//    }
     /*
     // MARK: - Navigation
 
@@ -53,7 +61,6 @@ class ProfileSetUpViewController: UIViewController {
     @IBOutlet weak var userPhone: UILabel!
     @IBOutlet weak var profileText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
-
     
 
 }
