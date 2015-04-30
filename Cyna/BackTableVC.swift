@@ -25,12 +25,12 @@ class BackTableVC: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-            print(TableArray[indexPath.row])
-           if(TableArray[indexPath.row] == "Logout") {
-        //       log out user
-                    println("TRY TO LOG OUT");
-           }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(TableArray[indexPath.row] == "Logout") {
+            PFUser.logOut()
+            let homeView = self.storyboard?.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+            self.presentViewController(homeView, animated: true, completion: nil)
+        }
     }
     //use below to check for log out
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
