@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="436" y="-493"/>
         </scene>
-        <!--View Controller-->
+        <!--Become Expert View Controller-->
         <scene sceneID="Cfe-A6-ba7">
             <objects>
-                <viewController id="3DA-G6-Ej3" sceneMemberID="viewController">
+                <viewController id="3DA-G6-Ej3" customClass="BecomeExpertViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ou4-me-HC3"/>
                         <viewControllerLayoutGuide type="bottom" id="Ffi-TC-NSc"/>
@@ -216,9 +216,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-1f-I15">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="aCl-4g-Tj2"/>
+                                    <constraint firstAttribute="height" constant="44" id="z87-Jc-2rr"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Become An Expert" id="tDW-Wn-q5S"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yB6-1f-I15" firstAttribute="top" secondItem="Ou4-me-HC3" secondAttribute="bottom" id="19U-aJ-XWO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yB6-1f-I15" secondAttribute="trailing" constant="-16" id="Gy6-9z-zoa"/>
+                            <constraint firstItem="yB6-1f-I15" firstAttribute="leading" secondItem="cDL-S2-8AY" secondAttribute="leadingMargin" constant="-16" id="iU3-qv-LXx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="barButton" destination="tDW-Wn-q5S" id="Z34-Hs-v3z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAU-fS-qYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="409" y="303.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Payment View Controller-->
         <scene sceneID="pGn-2z-U67">
             <objects>
-                <viewController id="k7Y-ad-q02" sceneMemberID="viewController">
+                <viewController id="k7Y-ad-q02" customClass="PaymentViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EmV-d3-zlM"/>
                         <viewControllerLayoutGuide type="bottom" id="DBk-XC-ufx"/>
@@ -320,13 +338,31 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVd-2J-YRC">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="abc-Sc-Bsx"/>
+                                    <constraint firstAttribute="height" constant="44" id="uYX-jH-hhG"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Payment" id="VWF-Yc-elu"/>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dVd-2J-YRC" firstAttribute="leading" secondItem="nid-Qb-hTO" secondAttribute="leadingMargin" constant="-16" id="KQF-qr-4zK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dVd-2J-YRC" secondAttribute="trailing" constant="-16" id="axs-Mv-Rpx"/>
+                            <constraint firstItem="dVd-2J-YRC" firstAttribute="top" secondItem="EmV-d3-zlM" secondAttribute="bottom" id="wsF-5h-UUI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navItem" destination="VWF-Yc-elu" id="8F9-BO-d2l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPv-ME-hyN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1248" y="197"/>
+            <point key="canvasLocation" x="1248" y="278"/>
         </scene>
         <!--Rate View Controller-->
         <scene sceneID="aNt-WS-abz">
