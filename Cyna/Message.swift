@@ -26,7 +26,7 @@ class Message : NSObject, JSQMessageData {
         self.sender_ = sender!
         self.date_ = NSDate()
         self.imageUrl_ = imageUrl
-        self.senderId_ = "1"
+        self.senderId_ = senderId
     }
     
     func text() -> String! {
@@ -38,7 +38,7 @@ class Message : NSObject, JSQMessageData {
     }
     
     func senderId() -> String! {
-        return NSProcessInfo().globallyUniqueString
+        return senderId_
     }
     
     func isMediaMessage() -> Bool {
