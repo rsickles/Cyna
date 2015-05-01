@@ -32,8 +32,8 @@ class DialogViewController: JSQMessagesViewController {
             let text = snapshot.value["text"] as? String
             let sender = snapshot.value["sender"] as? String
             let imageUrl = snapshot.value["imageUrl"] as? String
-            
-            let message = Message(text: text, sender: sender, imageUrl: imageUrl)
+            let senderId = NSProcessInfo().globallyUniqueString
+            let message = Message(text: text, sender: sender, imageUrl: imageUrl, senderId: senderId)
             self.messages.append(message)
             self.finishReceivingMessage()
         })
@@ -49,7 +49,7 @@ class DialogViewController: JSQMessagesViewController {
     }
     
     func tempSendMessage(text: String!, sender: String!) {
-        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl)
+        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl, senderId: senderId)
         messages.append(message)
     }
     

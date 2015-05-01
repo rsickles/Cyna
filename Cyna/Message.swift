@@ -15,16 +15,18 @@ class Message : NSObject, JSQMessageData {
     var sender_: String
     var date_: NSDate
     var imageUrl_: String?
+    var senderId_: String?
     
-    convenience init(text: String?, sender: String?) {
-        self.init(text: text, sender: sender, imageUrl: nil)
-    }
+//    convenience init(text: String?, sender: String?) {
+//        self.init(text: text, sender: sender, imageUrl: nil, senderid: senderid)
+//    }
     
-    init(text: String?, sender: String?, imageUrl: String?) {
+    init(text: String?, sender: String?, imageUrl: String?, senderId: String?) {
         self.text_ = text!
         self.sender_ = sender!
         self.date_ = NSDate()
         self.imageUrl_ = imageUrl
+        self.senderId_ = "1"
     }
     
     func text() -> String! {
@@ -36,7 +38,7 @@ class Message : NSObject, JSQMessageData {
     }
     
     func senderId() -> String! {
-        return "1"
+        return NSProcessInfo().globallyUniqueString
     }
     
     func isMediaMessage() -> Bool {
