@@ -137,7 +137,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Camera" id="ufn-G1-37W">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="KEv-N6-6V4"/>
-                        <barButtonItem key="rightBarButtonItem" title="Chat" id="1aI-DS-eg7"/>
+                        <barButtonItem key="rightBarButtonItem" title="Chat" id="1aI-DS-eg7">
+                            <connections>
+                                <segue destination="SL2-Tf-hvq" kind="presentation" id="adO-iS-4im"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -148,6 +152,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1150" y="-1233"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nbi-fu-5d8">
+            <objects>
+                <navigationController id="SL2-Tf-hvq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6uM-y6-7b6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="05d-HI-TqW" kind="relationship" relationship="rootViewController" id="tEr-wF-cAw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vbn-37-clC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1868" y="-1233"/>
+        </scene>
+        <!--Dialog View Controller-->
+        <scene sceneID="7WM-gr-j4a">
+            <objects>
+                <viewController id="05d-HI-TqW" customClass="DialogViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zlm-Tz-i5d"/>
+                        <viewControllerLayoutGuide type="bottom" id="kaH-nQ-i2L"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cNc-de-7r4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ffo-le-Okw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWq-Ox-rGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2566" y="-1229"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="daX-aO-oQK">
