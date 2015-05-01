@@ -15,4 +15,3 @@
 #import "JSQMessagesBubbleImageFactory.h"
 #import "JSQMessagesAvatarImageFactory.h"
 #import "JSQMessagesAvatarImage.h"
-
