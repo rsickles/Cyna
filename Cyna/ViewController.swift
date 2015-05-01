@@ -74,6 +74,7 @@ class ViewController: UIViewController {
             user["profile_picture"] = facebookProfileUrl
             user["account_active"] = true
             user["account_type"] = "user"
+            user["credit"] = "5"
             user.saveInBackground()
         }
     }

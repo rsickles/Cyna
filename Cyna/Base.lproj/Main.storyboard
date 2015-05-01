@@ -168,11 +168,54 @@
         <!--Back TableVC-->
         <scene sceneID="zr2-Y2-wwJ">
             <objects>
-                <tableViewController id="4Ic-F5-TFA" customClass="BackTableVC" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="backTableVC" id="4Ic-F5-TFA" customClass="BackTableVC" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qPK-wV-aaA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="6Ap-pL-BYa">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="275"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uLM-Yw-GC7">
+                                    <rect key="frame" x="53" y="17" width="143" height="143"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="143" id="2AN-yg-l3M"/>
+                                        <constraint firstAttribute="height" constant="143" id="gAt-i7-IGy"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdB-VB-5NP">
+                                    <rect key="frame" x="8" y="222" width="244" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="244" id="jRz-K9-Orj"/>
+                                        <constraint firstAttribute="height" constant="21" id="kUw-ea-ckk"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hak-8P-Zh1">
+                                    <rect key="frame" x="8" y="180" width="244" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="W4H-lY-PEL"/>
+                                        <constraint firstAttribute="width" constant="244" id="YAj-pv-aEE"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="KdB-VB-5NP" firstAttribute="top" secondItem="Hak-8P-Zh1" secondAttribute="bottom" constant="21" id="7ux-JI-Ii7"/>
+                                <constraint firstItem="uLM-Yw-GC7" firstAttribute="leading" secondItem="6Ap-pL-BYa" secondAttribute="leading" constant="53" id="GfG-V3-aaX"/>
+                                <constraint firstAttribute="bottom" secondItem="KdB-VB-5NP" secondAttribute="bottom" constant="32" id="Ixu-Om-dSx"/>
+                                <constraint firstItem="Hak-8P-Zh1" firstAttribute="leading" secondItem="6Ap-pL-BYa" secondAttribute="leading" constant="8" id="Mlm-YJ-jLL"/>
+                                <constraint firstItem="uLM-Yw-GC7" firstAttribute="top" secondItem="6Ap-pL-BYa" secondAttribute="top" constant="17" id="X8d-xz-lLV"/>
+                                <constraint firstItem="Hak-8P-Zh1" firstAttribute="top" secondItem="uLM-Yw-GC7" secondAttribute="bottom" constant="20" id="e27-42-wsZ"/>
+                                <constraint firstItem="KdB-VB-5NP" firstAttribute="leading" secondItem="6Ap-pL-BYa" secondAttribute="leading" constant="8" id="tMJ-tp-lHB"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Become An Expert" id="6Up-ER-jDy">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -204,6 +247,12 @@
                             <outlet property="delegate" destination="4Ic-F5-TFA" id="6MV-Fe-8Nw"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="credit" destination="KdB-VB-5NP" id="gc0-3j-02D"/>
+                        <outlet property="name" destination="Hak-8P-Zh1" id="A1d-V5-Llo"/>
+                        <outlet property="profileImage" destination="uLM-Yw-GC7" id="w64-e1-37C"/>
+                        <outlet property="profileView" destination="6Ap-pL-BYa" id="6kd-Md-Pew"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOq-CO-aPi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,6 +282,7 @@
                                     <constraint firstAttribute="width" constant="600" id="aCl-4g-Tj2"/>
                                     <constraint firstAttribute="height" constant="44" id="z87-Jc-2rr"/>
                                 </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Become An Expert" id="tDW-Wn-q5S"/>
                                 </items>
@@ -384,6 +434,7 @@
                                     <constraint firstAttribute="width" constant="600" id="abc-Sc-Bsx"/>
                                     <constraint firstAttribute="height" constant="44" id="uYX-jH-hhG"/>
                                 </constraints>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Payment" id="VWF-Yc-elu"/>
                                 </items>
