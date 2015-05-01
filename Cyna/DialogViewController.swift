@@ -13,8 +13,8 @@ class DialogViewController: JSQMessagesViewController {
     
     var messages = [Message]()
     //var avatars = Dictionary<String, UIImage>()
-    //var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
-    //var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+//    var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessagesBubbleImageWithColor(UIColor.redColor())
+//    var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
     var senderImageUrl: String!
     var batchMessages = true
     var ref: Firebase!
@@ -24,12 +24,13 @@ class DialogViewController: JSQMessagesViewController {
     var messagesRef: Firebase!
     
     func setupFirebase() {
-        println("starting")
+        println("starting firebase")
         // *** STEP 2: SETUP FIREBASE
         messagesRef = Firebase(url: "https://cyna.firebaseio.com/messages")
-        
+        println ("firebase setup done")
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
         messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            println("I got here")
             let text = snapshot.value["text"] as? String
             let sender = snapshot.value["sender"] as? String
             let imageUrl = snapshot.value["imageUrl"] as? String
@@ -37,16 +38,22 @@ class DialogViewController: JSQMessagesViewController {
             let message = Message(text: text, sender: sender, imageUrl: imageUrl, senderId: senderId)
             self.messages.append(message)
             self.finishReceivingMessage()
+            println("block end")
         })
+        println("loaded messages")
     }
     
     func sendMessage(text: String!, sender: String!) {
         // *** STEP 3: ADD A MESSAGE TO FIREBASE
+        println("send message")
+        println (text, sender)
+        senderImageUrl = "string"
         messagesRef.childByAutoId().setValue([
             "text":text,
             "sender":sender,
             "imageUrl":senderImageUrl
             ])
+        println("send message end")
     }
     
     func tempSendMessage(text: String!, sender: String!) {
@@ -88,6 +95,9 @@ class DialogViewController: JSQMessagesViewController {
 //    }
     
     override func viewDidLoad() {
+        println ("Hi")
+        println (NSProcessInfo().globallyUniqueString)
+        let senderId = NSProcessInfo().globallyUniqueString
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
@@ -119,6 +129,11 @@ class DialogViewController: JSQMessagesViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.senderId = NSProcessInfo().globallyUniqueString
+        self.senderDisplayName = "Name"
+        super.viewWillAppear(animated)
+    }
     // ACTIONS
     
     func receivedMessagePressed(sender: UIBarButtonItem) {
@@ -127,10 +142,11 @@ class DialogViewController: JSQMessagesViewController {
         scrollToBottomAnimated(true)
     }
     
-    func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
-        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+    override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
+//        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+    
         
-        sendMessage(text, sender: sender)
+        sendMessage(text, sender: senderId)
         
         finishSendingMessage()
     }
@@ -139,18 +155,19 @@ class DialogViewController: JSQMessagesViewController {
         println("Camera pressed!")
     }
     
-    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
-        return messages[indexPath.item]
-    }
+//    override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+//        return messages[indexPath.item]
+//    }
     
 //    func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
 //        let message = messages[indexPath.item]
 //        
-////        if message.sender() == sender {
+////        if message.senderDisplayName() == senderDisplayName {
 ////            return UIImageView(image: outgoingBubbleImageView.image, highlightedImage: outgoingBubbleImageView.highlightedImage)
 ////        }
+////        
+////        return UIImageView(image: incomingBubbleImageView.image, highlightedImage: incomingBubbleImageView.highlightedImage)
 //        
-//        return UIImageView(image: incomingBubbleImageView.image, highlightedImage: incomingBubbleImageView.highlightedImage)
 //    }
     
 //     func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {

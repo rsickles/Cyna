@@ -43,6 +43,7 @@
 		92AB03781ACDBBDA007D8DFB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AB03771ACDBBDA007D8DFB /* SystemConfiguration.framework */; };
 		92AB037A1ACDBBE1007D8DFB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AB03791ACDBBE1007D8DFB /* libz.dylib */; };
 		92AB037C1ACDBBEB007D8DFB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92AB037B1ACDBBEB007D8DFB /* libsqlite3.dylib */; };
+		D123778D1AF42A7D00E9DD7E /* chatView.m in Sources */ = {isa = PBXBuildFile; fileRef = D123778C1AF42A7D00E9DD7E /* chatView.m */; };
 		D6B2B540148D1ED48FF9352A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6DA47CABF2D4973E0F9A64 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		92AB03791ACDBBE1007D8DFB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		92AB037B1ACDBBEB007D8DFB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		AC43AE708B63C65542517208 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D123778C1AF42A7D00E9DD7E /* chatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = chatView.m; sourceTree = "<group>"; };
 		EF9C5EE7813F0EF2A7B89B3B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +214,7 @@
 				32DA0AAF1AD73FBB007082B3 /* RateViewController.swift */,
 				92AB03461ACB8BFD007D8DFB /* Main.storyboard */,
 				922DF6B61AF314DD00F3D5F1 /* DialogViewController.swift */,
+				D123778C1AF42A7D00E9DD7E /* chatView.m */,
 				922DF6B41AF1BA5800F3D5F1 /* BecomeExpertViewController.swift */,
 				922DF6B21AF1B3E400F3D5F1 /* PaymentViewController.swift */,
 				922DF6B01AF1594700F3D5F1 /* BackTableVC.swift */,
@@ -388,6 +391,7 @@
 				922B72611AD627C20052F3E5 /* ProfileSetUpViewController.swift in Sources */,
 				922DF6B11AF1594700F3D5F1 /* BackTableVC.swift in Sources */,
 				32DA0AAE1AD73E85007082B3 /* RateView.swift in Sources */,
+				D123778D1AF42A7D00E9DD7E /* chatView.m in Sources */,
 				922DF6AF1AF0A25B00F3D5F1 /* SWRevealViewController.m in Sources */,
 				9200A5941AD029540007F03A /* CameraViewController.swift in Sources */,
 				92AB03451ACB8BFD007D8DFB /* ViewController.swift in Sources */,

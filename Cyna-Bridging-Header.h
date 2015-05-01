@@ -10,7 +10,6 @@
 #import "SWRevealViewController.h"
 #import <JSQMessagesViewController/JSQMessages.h>
 #import "JSQMessages.h"
-#import "JSQMessagesBubbleImage.h"
 #import "JSQMessageData.h"
 #import <Firebase/Firebase.h>
 #import "JSQMessagesBubbleImageFactory.h"
