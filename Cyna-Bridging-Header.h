@@ -8,5 +8,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import <ImageIO/ImageIO.h>
 #import "SWRevealViewController.h"
-#import <JSQMessagesViewController/JSQMessages.h> 
+#import <JSQMessagesViewController/JSQMessages.h>
+#import "JSQMessages.h"
+#import "JSQMessagesBubbleImage.h"
+#import "JSQMessageData.h"
+#import <Firebase/Firebase.h>
+#import "JSQMessagesBubbleImageFactory.h"
+#import "JSQMessagesAvatarImageFactory.h"
+#import "JSQMessagesAvatarImage.h"
 
