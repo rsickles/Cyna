@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSQMessages.h"
 
-@interface ChatView : UIView
+@interface ChatView : JSQMessagesViewController
 
 @end

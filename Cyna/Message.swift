@@ -16,17 +16,21 @@ class Message : NSObject, JSQMessageData {
     var date_: NSDate
     var imageUrl_: String?
     var senderId_: String?
+    var isMediaMessage_: Bool
+    var media_: JSQMessageMediaData
     
 //    convenience init(text: String?, sender: String?) {
 //        self.init(text: text, sender: sender, imageUrl: nil, senderid: senderid)
 //    }
     
-    init(text: String?, sender: String?, imageUrl: String?, senderId: String?) {
+    init(text: String?, sender: String?, imageUrl: String?, senderId: String?, isMediaMessage: Bool, media: JSQMessageMediaData) {
         self.text_ = text!
         self.sender_ = sender!
         self.date_ = NSDate()
         self.imageUrl_ = imageUrl
         self.senderId_ = senderId
+        self.isMediaMessage_ = isMediaMessage
+        self.media_ = media
     }
     
     func text() -> String! {
@@ -42,7 +46,7 @@ class Message : NSObject, JSQMessageData {
     }
     
     func isMediaMessage() -> Bool {
-        return false
+        return isMediaMessage_
     }
     
     func messageHash() -> UInt {
@@ -51,6 +55,10 @@ class Message : NSObject, JSQMessageData {
     
     func date() -> NSDate! {
         return date_;
+    }
+    
+    func media() -> JSQMessageMediaData! {
+        return media_;
     }
     
     func imageUrl() -> String? {

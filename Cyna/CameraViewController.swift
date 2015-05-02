@@ -105,6 +105,11 @@ class CameraViewController: UIViewController {
                 var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
                 var data_image = UIImage(data: image)
                 //self.imageView.image = data_image
+                println("YOOOO")
+                println(data_image)
+                let newView = self.storyboard?.instantiateViewControllerWithIdentifier("dialog") as! DialogViewController
+                newView.picture = data_image
+                
                 self.captureSession.stopRunning()
             })
         }

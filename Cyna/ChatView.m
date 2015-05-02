@@ -1,74 +1,74 @@
-////
-////  ChatView.m
-////  
-////
-////  Created by Annie Chen on 5/1/15.
-////
-////
 //
-//#import "ChatView.h"
+//  ChatView.m
+//  
 //
-//#import <Foundation/Foundation.h>
-//#import <JSQMessagesCollectionView.h>
-//#import <JSQMessagesBubbleImage.h>
-//#import <JSQMessagesAvatarImage.h>
-//#import <JSQMessagesBubbleImageFactory.h>
-//#import <JSQMessagesAvatarImageFactory.h>
+//  Created by Annie Chen on 5/1/15.
 //
 //
-//@interface ChatView()
-//{
-//    NSTimer *timer;
-//    BOOL isLoading;
-//    BOOL initialized;
-//    
-//    NSString *groupId;
-//    
-//    NSMutableArray *users;
-//    NSMutableArray *messages;
-//    NSMutableDictionary *avatars;
-//    
-//    JSQMessagesBubbleImage *bubbleImageOutgoing;
-//    JSQMessagesBubbleImage *bubbleImageIncoming;
-//    JSQMessagesAvatarImage *avatarImageBlank;
-//}
-//@end
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//
-//@implementation ChatView
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//- (id)initWith:(NSString *)groupId_
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//{
-//    self = [super init];
-//    groupId = groupId_;
-//    return self;
-//}
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//- (void)viewDidLoad
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//{
-//    [super viewDidLoad];
-//    self.title = @"Chat";
-//    //---------------------------------------------------------------------------------------------------------------------------------------------
-//    users = [[NSMutableArray alloc] init];
-//    messages = [[NSMutableArray alloc] init];
-//    avatars = [[NSMutableDictionary alloc] init];
-//    //-----------------------------------------------------------------------------------------------------------------------------    //---------------------------------------------------------------------------------------------------------------------------------------------
-//    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
+
+#import "ChatView.h"
+
+#import <Foundation/Foundation.h>
+#import <JSQMessagesCollectionView.h>
+#import <JSQMessagesBubbleImage.h>
+#import <JSQMessagesAvatarImage.h>
+#import <JSQMessagesBubbleImageFactory.h>
+#import <JSQMessagesAvatarImageFactory.h>
+
+
+@interface ChatView()
+{
+    NSTimer *timer;
+    BOOL isLoading;
+    BOOL initialized;
+    
+    NSString *groupId;
+    
+    NSMutableArray *users;
+    NSMutableArray *messages;
+    NSMutableDictionary *avatars;
+    
+    JSQMessagesBubbleImage *bubbleImageOutgoing;
+    JSQMessagesBubbleImage *bubbleImageIncoming;
+    JSQMessagesAvatarImage *avatarImageBlank;
+}
+@end
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+
+@implementation ChatView
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+- (id)initWith:(NSString *)groupId_
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+{
+    self = [super init];
+    groupId = groupId_;
+    return self;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+- (void)viewDidLoad
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+{
+    [super viewDidLoad];
+    self.title = @"Chat";
+    //---------------------------------------------------------------------------------------------------------------------------------------------
+    users = [[NSMutableArray alloc] init];
+    messages = [[NSMutableArray alloc] init];
+    avatars = [[NSMutableDictionary alloc] init];
+    //-----------------------------------------------------------------------------------------------------------------------------    //---------------------------------------------------------------------------------------------------------------------------------------------
+    JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];
 //    bubbleImageOutgoing = [bubbleFactory outgoingMessagesBubbleImageWithColor:COLOR_OUTGOING];
 //    bubbleImageIncoming = [bubbleFactory incomingMessagesBubbleImageWithColor:COLOR_INCOMING];
-//    //---------------------------------------------------------------------------------------------------------------------------------------------
-//    avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"chat_blank"] diameter:30.0];
-//    //---------------------------------------------------------------------------------------------------------------------------------------------
-//    isLoading = NO;
-//    initialized = NO;
+    //---------------------------------------------------------------------------------------------------------------------------------------------
+    avatarImageBlank = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"chat_blank"] diameter:30.0];
+    //---------------------------------------------------------------------------------------------------------------------------------------------
+    isLoading = NO;
+    initialized = NO;
 //    [self loadMessages];
-//}
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)viewDidAppear:(BOOL)animated
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //{
@@ -82,13 +82,13 @@
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //{
 //    [super viewWillDisappear:animated];
-//    ClearRecentCounter(groupId);
+//    //ClearRecentCounter(groupId);
 //    [timer invalidate];
 //}
 //
-//#pragma mark - Backend methods
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
+#pragma mark - Backend methods
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)loadMessages
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //{
@@ -129,8 +129,8 @@
 //         }];
 //    }
 //}
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (JSQMessage *)addMessage:(PFObject *)object
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //{
@@ -175,7 +175,7 @@
 //    //---------------------------------------------------------------------------------------------------------------------------------------------
 //    return message;
 //}
-//
+
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (void)loadAvatar:(PFUser *)user
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -278,22 +278,16 @@
 //    }
 //    else return bubbleImageIncoming;
 //}
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//- (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView
-//                    avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
-////-------------------------------------------------------------------------------------------------------------------------------------------------
-//{
-//    PFUser *user = users[indexPath.item];
-//    if (avatars[user.objectId] == nil)
-//    {
-//        [self loadAvatar:user];
-//        return avatarImageBlank;
-//    }
-//    else return avatars[user.objectId];
-//}
-//
-////-------------------------------------------------------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+- (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView
+                    avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+{
+    return avatarImageBlank;
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 //- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 ////-------------------------------------------------------------------------------------------------------------------------------------------------
 //{
@@ -495,5 +489,5 @@
 //{
 //    return ([message.senderId isEqualToString:self.senderId] == YES);
 //}
-//
-//@end
+
+@end
