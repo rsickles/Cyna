@@ -146,7 +146,7 @@ class DialogViewController: JSQMessagesViewController {
 //        JSQSystemSoundPlayer.jsq_playMessageSentSound()
     
         
-        sendMessage(text, sender: senderId)
+        sendMessage(text, sender: senderDisplayName)
         
         finishSendingMessage()
     }
@@ -160,24 +160,31 @@ class DialogViewController: JSQMessagesViewController {
         return messages[indexPath.item]
     }
     
-    func collectionView(collectionView: JSQMessagesCollectionView!, bubbleImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+    override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
+        //bubbleImageViewForItemAtIndexPath
+        //UIImageView!
         let message = messages[indexPath.item]
         println("bubbleimageviewforitematIndexPath")
         if message.senderDisplayName() == senderDisplayName {
-             return UIImageView(image: outgoingBubbleImageView.messageBubbleImage, highlightedImage: outgoingBubbleImageView.messageBubbleHighlightedImage)
+//             return UIImageView(image: outgoingBubbleImageView.messageBubbleImage, highlightedImage: outgoingBubbleImageView.messageBubbleHighlightedImage)
+            return outgoingBubbleImageView;
         }
         println("REACH END")
-        return UIImageView(image: incomingBubbleImageView.messageBubbleImage, highlightedImage: incomingBubbleImageView.messageBubbleHighlightedImage)
+//        return UIImageView(image: incomingBubbleImageView.messageBubbleImage, highlightedImage: incomingBubbleImageView.messageBubbleHighlightedImage)
+        return incomingBubbleImageView;
         
     }
     
-     func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageViewForItemAtIndexPath indexPath: NSIndexPath!) -> UIImageView! {
+     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) ->  JSQMessageAvatarImageDataSource!{
+        //avatarImageViewForItemAtIndexPath UIImageView!
         let message = messages[indexPath.item]
         if let avatar = avatars[message.senderDisplayName()] {
-            return UIImageView(image: avatar)
+//            return UIImageView(image: avatar)
+            return nil
         } else {
             setupAvatarImage(message.senderDisplayName(), imageUrl: message.imageUrl(), incoming: true)
-            return UIImageView(image:avatars[message.senderDisplayName()])
+//            return UIImageView(image:avatars[message.senderDisplayName()])
+            return nil
         }
     }
     
