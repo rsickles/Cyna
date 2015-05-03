@@ -27,8 +27,6 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
-        
-        
         //side menu stuff
         open.target = self.revealViewController()
         open.action = Selector("revealToggle:")
@@ -115,6 +113,10 @@ class CameraViewController: UIViewController {
         }
     }
     
+    @IBOutlet var chat_button: UIBarButtonItem!
+    @IBAction func goToChat(sender: UIBarButtonItem) {
+        
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        var dest : DialogViewController = segue.destinationViewController as! DialogViewController
         let navVC = segue.destinationViewController as! UINavigationController
@@ -126,6 +128,12 @@ class CameraViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func show_no_chat_alert(){
+        var alert = UIAlertController(title: "No Picture Taken", message: "You must first take a picture before you chat with an expert.", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
 
