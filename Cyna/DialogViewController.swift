@@ -44,8 +44,9 @@ class DialogViewController: JSQMessagesViewController {
                         println("I got one message")
                         //grab parse text from file
                         let text = object["text"] as? String
+                        println(text)
                             //check if picture is nil
-                            if ((text?.isEmpty) != nil) {
+                            if ( text == nil) {
                                 //grab parse image from file
                                 let userImageFile = object["image"] as! PFFile
                                 userImageFile.getDataInBackgroundWithBlock({ (data:NSData?, error:NSError?) -> Void in
@@ -184,7 +185,7 @@ class DialogViewController: JSQMessagesViewController {
     
     func sendUserImage(picture: UIImage!){
         var message = PFObject(className:"Message")
-        let imageData = UIImagePNGRepresentation(picture)
+        let imageData = self.scaleImageToSize(10485760, image: picture)
         let imageFile = PFFile(name: "userimg.png", data: imageData)
         message["image"] = imageFile
         message.saveInBackgroundWithBlock {
@@ -199,6 +200,18 @@ class DialogViewController: JSQMessagesViewController {
         }
     }
     
+    func scaleImageToSize(floatNumber:Int, image:UIImage) -> NSData{
+        let img = image
+        var compress = 1.0 as CGFloat
+        var sub = 0.05 as CGFloat
+        var imgData = UIImageJPEGRepresentation(img, compress)
+        while((imgData.length) > floatNumber){
+            compress = compress - sub
+            imgData = UIImageJPEGRepresentation(img, compress)
+        }
+        return imgData
+    }
+
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
@@ -206,10 +219,6 @@ class DialogViewController: JSQMessagesViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
-        if ref != nil {
-            ref.unauth()
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -246,7 +255,7 @@ class DialogViewController: JSQMessagesViewController {
         //bubbleImageViewForItemAtIndexPath
         //UIImageView!
         let message = messages[indexPath.item]
-        if message.senderDisplayName() == senderDisplayName {
+        if message.senderDisplayName == senderDisplayName {
 //             return UIImageView(image: outgoingBubbleImageView.messageBubbleImage, highlightedImage: outgoingBubbleImageView.messageBubbleHighlightedImage)
             return outgoingBubbleImageView;
         }
@@ -279,7 +288,7 @@ class DialogViewController: JSQMessagesViewController {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
         
         let message = messages[indexPath.item]
-        if message.senderDisplayName() == senderDisplayName {
+        if message.senderDisplayName == senderDisplayName {
             cell.textView.textColor = UIColor.blackColor()
         } else {
             cell.textView.textColor = UIColor.whiteColor()
@@ -299,33 +308,33 @@ class DialogViewController: JSQMessagesViewController {
         let message = messages[indexPath.item];
         
         // Sent by me, skip
-        if message.senderDisplayName() == senderDisplayName {
+        if message.senderDisplayName == self.senderDisplayName {
             return nil;
         }
         
         // Same as previous sender, skip
         if indexPath.item > 0 {
             let previousMessage = messages[indexPath.item - 1];
-            if previousMessage.senderDisplayName() == message.senderDisplayName() {
+            if previousMessage.senderDisplayName == message.senderDisplayName {
                 return nil;
             }
         }
         
-        return NSAttributedString(string:message.senderDisplayName())
+        return NSAttributedString(string:message.senderDisplayName)
     }
 
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
         let message = messages[indexPath.item]
         
 //        // Sent by me, skip
-        if message.senderDisplayName() == senderDisplayName {
+        if message.senderDisplayName == senderDisplayName {
             return CGFloat(0.0);
         }
 //
 //        // Same as previous sender, skip
         if indexPath.item > 0 {
             let previousMessage = messages[indexPath.item - 1];
-            if previousMessage.senderDisplayName() == message.senderDisplayName() {
+            if previousMessage.senderDisplayName == message.senderDisplayName {
                 return CGFloat(0.0);
             }
         }

@@ -46,6 +46,9 @@
     return self;
 }
 
+
+
+
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidLoad
 //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -66,6 +69,21 @@
     isLoading = NO;
     initialized = NO;
 //    [self loadMessages];
+}
+
+- (NSData *)scaleImageToSize:(CGFloat)destSize image:(UIImage *)withImage
+{
+    UIImage *img = withImage;
+    CGFloat compress = 1.0;
+    NSData *imgData = UIImageJPEGRepresentation(img, compress);
+    NSLog(@"size: %lu", (unsigned long)[imgData length]);
+    while ([imgData length] > destSize) {
+        compress -= .05;
+        imgData = UIImageJPEGRepresentation(img, compress);
+        NSLog(@"new size: %lu",(unsigned long)[imgData length]);
+    }
+    
+    return imgData;
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
