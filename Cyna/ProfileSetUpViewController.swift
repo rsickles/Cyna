@@ -28,12 +28,21 @@ class ProfileSetUpViewController: UIViewController {
         query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
             //code
             println(result)
+//            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2
+//            self.profileImage.layer.masksToBounds = true
+//            self.profileImage.layer.borderWidth = 0;
+            
+//            var pic_url = result?.objectForKey("profile_picture") as! String
+//            let url = NSURL(string: pic_url)
+//            var imageData :NSData = NSData(contentsOfURL: url!)!
+//            var bgImage = UIImage(data:imageData)
+//            self.profileImage.image = bgImage
+            
             self.userName.text = result?.objectForKey("name") as? String
             self.userEmail.text = result?.objectForKey("email") as? String
             self.userPhone.text = result?.objectForKey("phone") as? String
-            var imagePath: String = "https://graph.facebook.com/"
-            imagePath = (result?.objectForKey("profile_picture") as? String)!
-            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath)!)!)
+            var imagePath = result?.objectForKey("profile_picture") as? String
+            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath!)!)!)
             self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
             self.profileText.text =
                 result?.objectForKey("profile_information") as? String
