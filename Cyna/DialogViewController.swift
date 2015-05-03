@@ -179,7 +179,6 @@ class DialogViewController: JSQMessagesViewController {
         sendUserImage(self.picture)
         println("HEEELPPP")
         print(self.picture)
-        finishSendingMessage()
     }
     
     
@@ -193,6 +192,7 @@ class DialogViewController: JSQMessagesViewController {
             if (success) {
                 // The object has been saved.
                 println("The image Has been saved")
+                self.finishSendingMessage()
                 self.pullFromParse()
             } else {
                 // There was a problem, check error.description
