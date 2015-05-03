@@ -33,12 +33,14 @@ class DialogViewController: JSQMessagesViewController {
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
         var query = PFQuery(className:"Message")
         query.limit = 25
+        var printoutblock = 0
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 // The find succeeded.
                 println("Successfully retrieved \(objects!.count) scores.")
                 if let objects = objects as? [PFObject] {
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), {
                     for object in objects {
                         //every message is an object
                         println("I got one message")
@@ -48,21 +50,33 @@ class DialogViewController: JSQMessagesViewController {
                             //check if picture is nil
                             if ( text == nil) {
                                 //grab parse image from file
+                                println("A")
                                 let userImageFile = object["image"] as! PFFile
+                                println("B")
                                 userImageFile.getDataInBackgroundWithBlock({ (data:NSData?, error:NSError?) -> Void in
+                                println("C")
                                     let image = UIImage(data:data!)
+                                    println("D")
                                 let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: JSQPhotoMediaItem(image: image))
+                                     println("E")
+                                    println(printoutblock+1)
+                                    printoutblock+=1
                                 self.messages.append(message)
                                 })
                         }
                         else {
                                 let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text:text)
+                                println(printoutblock+1)
+                                printoutblock+=1
                                 self.messages.append(message)
                             }
-                            self.finishReceivingMessage()
                             println("block end")
                         }
-                    }
+                        dispatch_async(dispatch_get_main_queue(), {
+                                self.finishReceivingMessage()
+                        })
+                    })
+                }
                 }
             }
         println("loaded messages")
@@ -70,6 +84,7 @@ class DialogViewController: JSQMessagesViewController {
     
     func sendMessage(text: String!, sender: String!) {
         var message = PFObject(className:"Message")
+        println("HAHAH NOPE")
         message["text"] = text
         message.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
@@ -237,10 +252,13 @@ class DialogViewController: JSQMessagesViewController {
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
 //        JSQSystemSoundPlayer.jsq_playMessageSentSound()
     
-        
+        println("FUUCK");
+        println(text);
+        println(self.senderDisplayName);
         sendMessage(text, sender: self.senderDisplayName)
-        
+        println("MESSAGE SENT");
         finishSendingMessage()
+        println("RYAN IS THE WORST")
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
@@ -281,6 +299,8 @@ class DialogViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        println("MESSSAGE COUNT")
+        println(messages.count)
         return messages.count
     }
 
