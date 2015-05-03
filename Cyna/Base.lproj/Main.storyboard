@@ -328,7 +328,14 @@
                                 </constraints>
                                 <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem id="RIN-9J-2J7"/>
+                                    <navigationItem id="V4z-In-XVU">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="LZW-y3-ggz"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Chat" id="PDb-9Q-bE3">
+                                            <connections>
+                                                <action selector="goToChat:" destination="H05-pc-mWs" id="CG3-U5-s04"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CRG-cJ-VTR">
@@ -360,15 +367,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Setup" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xf9-kT-LLu">
-                                <rect key="frame" x="182" y="28" width="157" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular" fixedFrame="YES">
-                                    <rect key="frame" x="207" y="38" width="99" height="21"/>
-                                </variation>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajq-J1-iJd">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5y0-Qq-woN"/>
+                                    <constraint firstAttribute="width" constant="600" id="Zo2-wd-4XM"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="zJe-I7-4ae">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Hfr-aL-w3x"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Chat" id="RmU-Nh-SxG">
+                                            <connections>
+                                                <action selector="goToChat:" destination="H05-pc-mWs" id="hkg-3V-e9c"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-P1-kOx">
                                 <rect key="frame" x="129" y="172" width="300" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -400,17 +416,6 @@
                                     <constraint firstAttribute="height" constant="100" id="xax-jc-I2O"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajq-J1-iJd">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="5y0-Qq-woN"/>
-                                    <constraint firstAttribute="width" constant="600" id="Zo2-wd-4XM"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="dHk-2A-BS4"/>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Byb-aE-IHf">
                                 <rect key="frame" x="255" y="14" width="68" height="35"/>
                                 <constraints>
