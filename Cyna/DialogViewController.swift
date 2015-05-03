@@ -11,82 +11,130 @@ import UIKit
 class DialogViewController: JSQMessagesViewController {
 
     
-    var messages = [Message]()
+    var messages = [JSQMessage]()
+    
     var avatars = Dictionary<String, UIImage>()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
     var senderImageUrl: String!
     var batchMessages = true
-    var ref: Firebase!
+    //var ref: Firebase!
     var avatar : JSQMessagesAvatarImage!
     
     var picture = UIImage()
     //var x = JSQMessagesAvatarImageFactory.avatarImageWith
+    var base64String: NSString!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
-    var messagesRef: Firebase!
+    //var messagesRef: Firebase!
     
-    func setupFirebase() {
-        println("starting firebase")
-        // *** STEP 2: SETUP FIREBASE
-        messagesRef = Firebase(url: "https://cyna.firebaseio.com/messages")
-        println ("firebase setup done")
+    func pullFromParse() {
+        println("starting parse")
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
-        messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            println("I got here")
-            let text = snapshot.value["text"] as? String
-            let sender = snapshot.value["sender"] as? String
-            let imageUrl = snapshot.value["imageUrl"] as? String
-            let senderId = NSProcessInfo().globallyUniqueString
-            let newPicture = JSQPhotoMediaItem(image: self.picture)
-            //check if picture is nil
-            var local_pic: UIImage? = self.picture
-            if(local_pic != nil){
-            let message = Message(text: text, sender: sender, imageUrl: imageUrl, senderId: senderId, isMediaMessage: true, media:newPicture)
-                self.messages.append(message)
-            }else {
-                let message = Message(text: text, sender: sender, imageUrl: imageUrl, senderId: senderId, isMediaMessage: false, media:newPicture)
-                self.messages.append(message)
+        var query = PFQuery(className:"Message")
+        query.limit = 25
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects!.count) scores.")
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        //every message is an object
+                        println("I got one message")
+                        //grab parse text from file
+                        let text = object["text"] as? String
+                            //check if picture is nil
+                            if ((text?.isEmpty) != nil) {
+                                //grab parse image from file
+                                let userImageFile = object["image"] as! PFFile
+                                userImageFile.getDataInBackgroundWithBlock({ (data:NSData?, error:NSError?) -> Void in
+                                    let image = UIImage(data:data!)
+                                let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: JSQPhotoMediaItem(image: image))
+                                self.messages.append(message)
+                                })
+                        }
+                        else {
+                                let message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text:text)
+                                self.messages.append(message)
+                            }
+                            self.finishReceivingMessage()
+                            println("block end")
+                        }
+                    }
+                }
             }
-            self.finishReceivingMessage()
-            println("block end")
-        })
         println("loaded messages")
     }
     
     func sendMessage(text: String!, sender: String!) {
-        // *** STEP 3: ADD A MESSAGE TO FIREBASE
-        println("send message")
-        println (text, sender)
-        senderImageUrl = "string"
-        messagesRef.childByAutoId().setValue([
-            "text":text,
-            "sender":sender,
-            "imageUrl":senderImageUrl
-            ])
-        println("send message end")
+        var message = PFObject(className:"Message")
+        message["text"] = text
+        message.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                println("The image Has been saved")
+            } else {
+                // There was a problem, check error.description
+            }
+        }
     }
     
-    func sendMediaMessage(media: UIImage!, sender: String!) {
-        // *** STEP 3: ADD A MESSAGE TO FIREBASE
-        println("send MEDIA MESSAGE")
-        println(media)
-        println("PRINTED MEDIA")
-        senderImageUrl = "string"
-        messagesRef.childByAutoId().setValue([
-            "media":media,
-            "sender":sender,
-            "imageUrl":senderImageUrl
-            ])
-        self.picture = UIImage()
-        println("send message end")
-    }
+//    func sendMediaMessage(media: UIImage!, sender: String!) {
+//        // *** STEP 3: ADD A MESSAGE TO FIREBASE
+//        println("send MEDIA MESSAGE")
+//        println(media)
+//        var local_pic: UIImage? = media
+//        println(sender != nil)
+//        println(local_pic != nil)
+//        println("PRINTED MEDIA")
+////        senderImageUrl = "string"
+////        messagesRef.childByAutoId().setValue([
+////            "media":media,
+////            "sender":sender,
+////            "imageUrl":senderImageUrl
+////            ])
+//        //resize image to smaller scale
+//        //let size = CGSizeMake(media.size.width / 2.0, media.size.height / 2.0)
+//        
+//        let size = CGSizeApplyAffineTransform(media.size, CGAffineTransformMakeScale(0.1, 0.1))
+//        let hasAlpha = false
+//        let scale: CGFloat = 0.0 // Automatically use scale factor of main screen
+//        
+//        UIGraphicsBeginImageContextWithOptions(size, !hasAlpha, scale)
+//        media.drawInRect(CGRect(origin: CGPointZero, size: size))
+//        
+//        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        //ending image resizing
+//        var imageData: NSData = UIImagePNGRepresentation(media)
+//        println("A")
+//        self.base64String = imageData.base64EncodedStringWithOptions(.allZeros)
+//        println("B")
+//        var quoteString = ["string": self.base64String]
+//        println("C")
+//        //var users = ["image":quoteString]
+//        //usersRef.setValue(users)
+//        senderImageUrl = "string"
+//        println("AAAAAA")
+//        println(sender == nil)
+//        println(self.base64String == nil)
+//        println(senderImageUrl == nil)
+//        messagesRef.childByAutoId().setValue([
+//            "string":self.base64String,
+//            "sender":sender,
+//            "imageUrl":senderImageUrl
+//            ])
+//        self.picture = UIImage()
+//        println("send message end")
+//    }
     
-    func tempSendMessage(text: String!, sender: String!) {
-        let newPicture = JSQPhotoMediaItem(image: self.picture)
-        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl, senderId: senderId, isMediaMessage: false, media:newPicture)
-        messages.append(message)
-    }
+//    func tempSendMessage(text: String!, sender: String!) {
+//        let newPicture = JSQPhotoMediaItem(image: self.picture)
+//        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl, senderId: senderId, isMediaMessage: false, media:newPicture)
+//        messages.append(message)
+//    }
     
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
         if let stringUrl = imageUrl {
@@ -122,28 +170,33 @@ class DialogViewController: JSQMessagesViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         println (NSProcessInfo().globallyUniqueString)
         let senderId = NSProcessInfo().globallyUniqueString
-        super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
-       // navigationController?.navigationBar.topItem?.title = "Logout"
-//        
-//        sender = (sender != nil) ? sender : "Anonymous"
-//        let profileImageUrl = user?.providerData["cachedUserProfile"]?["profile_image_url_https"] as? NSString
-//        if let urlString = profileImageUrl {
-//            setupAvatarImage(sender, imageUrl: urlString, incoming: false)
-//            senderImageUrl = urlString
-//        } else {
-//            setupAvatarColor(sender, incoming: false)
-//            senderImageUrl = ""
-//        }
-        
-        setupFirebase()
+        sendUserImage(self.picture)
         println("HEEELPPP")
         print(self.picture)
-        sendMediaMessage(self.picture, sender: senderDisplayName )
         finishSendingMessage()
+    }
+    
+    
+    func sendUserImage(picture: UIImage!){
+        var message = PFObject(className:"Message")
+        let imageData = UIImagePNGRepresentation(picture)
+        let imageFile = PFFile(name: "userimg.png", data: imageData)
+        message["image"] = imageFile
+        message.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                println("The image Has been saved")
+                self.pullFromParse()
+            } else {
+                // There was a problem, check error.description
+            }
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -176,7 +229,7 @@ class DialogViewController: JSQMessagesViewController {
 //        JSQSystemSoundPlayer.jsq_playMessageSentSound()
     
         
-        sendMessage(text, sender: senderDisplayName)
+        sendMessage(text, sender: self.senderDisplayName)
         
         finishSendingMessage()
     }
