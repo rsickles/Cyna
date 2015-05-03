@@ -14,6 +14,8 @@ class ProfileSetUpViewController: UIViewController {
         super.viewDidLoad()
         self.retrieveUserInformation()
         // Do any additional setup after loading the view.
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,12 +33,7 @@ class ProfileSetUpViewController: UIViewController {
 //            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2
 //            self.profileImage.layer.masksToBounds = true
 //            self.profileImage.layer.borderWidth = 0;
-            
-//            var pic_url = result?.objectForKey("profile_picture") as! String
-//            let url = NSURL(string: pic_url)
-//            var imageData :NSData = NSData(contentsOfURL: url!)!
-//            var bgImage = UIImage(data:imageData)
-//            self.profileImage.image = bgImage
+
             
             self.userName.text = result?.objectForKey("name") as? String
             self.userEmail.text = result?.objectForKey("email") as? String
@@ -47,6 +44,10 @@ class ProfileSetUpViewController: UIViewController {
             self.profileText.text =
                 result?.objectForKey("profile_information") as? String
         })
+    }
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 //    func saveTextToVar(sender: ) {
 //        var text: String?= profileText.text
