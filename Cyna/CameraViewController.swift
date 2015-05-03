@@ -21,6 +21,8 @@ class CameraViewController: UIViewController {
     
     // If we find a device we'll store it here for later use
     var captureDevice : AVCaptureDevice?
+    //holds the image take
+    var capturedImage = UIImage()
     var varView = Int()
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
@@ -107,12 +109,17 @@ class CameraViewController: UIViewController {
                 //self.imageView.image = data_image
                 println("YOOOO")
                 println(data_image)
-                let newView = self.storyboard?.instantiateViewControllerWithIdentifier("dialog") as! DialogViewController
-                newView.picture = data_image
-                
+                self.capturedImage = data_image!
                 self.captureSession.stopRunning()
             })
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        var dest : DialogViewController = segue.destinationViewController as! DialogViewController
+        let navVC = segue.destinationViewController as! UINavigationController
+        let tableVC = navVC.viewControllers.first as! DialogViewController
+        tableVC.picture = self.capturedImage
     }
     
     // captureSession.startRunning() again once we move to the next screen or the picture is dismissed

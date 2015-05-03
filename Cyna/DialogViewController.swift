@@ -19,7 +19,8 @@ class DialogViewController: JSQMessagesViewController {
     var batchMessages = true
     var ref: Firebase!
     var avatar : JSQMessagesAvatarImage!
-    var picture : UIImage!
+    
+    var picture = UIImage()
     //var x = JSQMessagesAvatarImageFactory.avatarImageWith
     
     // *** STEP 1: STORE FIREBASE REFERENCES
@@ -38,7 +39,9 @@ class DialogViewController: JSQMessagesViewController {
             let imageUrl = snapshot.value["imageUrl"] as? String
             let senderId = NSProcessInfo().globallyUniqueString
             let newPicture = JSQPhotoMediaItem(image: self.picture)
-            if(self.picture != nil){
+            //check if picture is nil
+            var local_pic: UIImage? = self.picture
+            if(local_pic != nil){
             let message = Message(text: text, sender: sender, imageUrl: imageUrl, senderId: senderId, isMediaMessage: true, media:newPicture)
                 self.messages.append(message)
             }else {
@@ -75,7 +78,7 @@ class DialogViewController: JSQMessagesViewController {
             "sender":sender,
             "imageUrl":senderImageUrl
             ])
-        self.picture = nil
+        self.picture = UIImage()
         println("send message end")
     }
     
@@ -137,6 +140,8 @@ class DialogViewController: JSQMessagesViewController {
 //        }
         
         setupFirebase()
+        println("HEEELPPP")
+        print(self.picture)
         sendMediaMessage(self.picture, sender: senderDisplayName )
         finishSendingMessage()
     }

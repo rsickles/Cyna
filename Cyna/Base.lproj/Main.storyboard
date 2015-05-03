@@ -139,7 +139,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="KEv-N6-6V4"/>
                         <barButtonItem key="rightBarButtonItem" title="Chat" id="1aI-DS-eg7">
                             <connections>
-                                <segue destination="SL2-Tf-hvq" kind="presentation" id="adO-iS-4im"/>
+                                <segue destination="SL2-Tf-hvq" kind="show" id="bMT-ub-cQl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
