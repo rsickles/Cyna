@@ -49,9 +49,9 @@ class ProfileSetUpViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-//    func saveTextToVar(sender: ) {
-//        var text: String?= profileText.text
-//    }
+    func saveTextToVar(sender: UIButton) {
+        var text = profileText.text
+    }
     
 //    func saveButton(){
 //        

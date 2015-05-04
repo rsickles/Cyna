@@ -123,7 +123,6 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="FHj-RG-GEY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rlr-5v-72j" secondAttribute="trailing" constant="-16" id="WMG-co-gC6"/>
@@ -377,7 +376,7 @@
                                 <items>
                                     <navigationItem id="zJe-I7-4ae">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Hfr-aL-w3x"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Chat" id="RmU-Nh-SxG">
+                                        <barButtonItem key="rightBarButtonItem" title="Camera" id="RmU-Nh-SxG">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="hkg-3V-e9c"/>
                                             </connections>
