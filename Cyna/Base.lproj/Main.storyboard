@@ -71,14 +71,14 @@
                     </view>
                     <connections>
                         <segue destination="4Ic-F5-TFA" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="QPC-qy-H3v"/>
-                        <segue destination="bR8-DZ-ckq" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="AKt-WQ-UFD"/>
+                        <segue destination="h9a-1A-gbX" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="Weh-F0-u0u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGe-MU-e3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302" y="-1233"/>
+            <point key="canvasLocation" x="-30" y="-1239"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Camera-->
         <scene sceneID="Yeg-vM-XXE">
             <objects>
                 <viewController storyboardIdentifier="cameraView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H05-pc-mWs" customClass="CameraViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,13 +91,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
-                                <rect key="frame" x="0.0" y="44" width="600" height="512"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-rk-MvV">
-                                        <rect key="frame" x="273" y="428" width="55" height="50"/>
+                                        <rect key="frame" x="273" y="408" width="55" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="1wv-vI-biL"/>
-                                            <constraint firstAttribute="width" constant="55" id="t78-sV-dyc"/>
+                                            <constraint firstAttribute="height" constant="50" id="YGQ-CM-tOL"/>
+                                            <constraint firstAttribute="width" constant="55" id="Zpg-a6-h9H"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="camera">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,24 +107,41 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMJ-oc-MeE">
-                                        <rect key="frame" x="15" y="40" width="53" height="45"/>
+                                        <rect key="frame" x="15" y="20" width="53" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="53" id="3RF-pg-WFf"/>
-                                            <constraint firstAttribute="height" constant="45" id="Gpr-fO-Q4u"/>
+                                            <constraint firstAttribute="width" constant="53" id="p5Y-1C-unw"/>
+                                            <constraint firstAttribute="height" constant="45" id="tkQ-sm-Mc5"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="hamburger">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKl-yH-XGC">
+                                        <rect key="frame" x="498" y="20" width="66" height="57"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="57" id="RTf-9d-QvZ"/>
+                                            <constraint firstAttribute="width" constant="66" id="SOd-RT-4cl"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="message">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="05d-HI-TqW" kind="show" id="800-0a-c3P"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="vfg-rk-MvV" firstAttribute="centerX" secondItem="ste-q8-n4N" secondAttribute="centerX" id="1LM-IT-g4t"/>
+                                    <constraint firstAttribute="bottom" secondItem="vfg-rk-MvV" secondAttribute="bottom" constant="34" id="Cjs-3A-2MR"/>
                                     <constraint firstAttribute="height" constant="512" id="DWr-0l-o2b"/>
-                                    <constraint firstItem="qMJ-oc-MeE" firstAttribute="leading" secondItem="ste-q8-n4N" secondAttribute="leading" constant="15" id="MoO-r4-UVe"/>
+                                    <constraint firstItem="qMJ-oc-MeE" firstAttribute="leading" secondItem="ste-q8-n4N" secondAttribute="leading" constant="15" id="Fa0-mX-gwE"/>
+                                    <constraint firstItem="tKl-yH-XGC" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="top" constant="20" id="GC9-hm-1F0"/>
+                                    <constraint firstAttribute="width" constant="600" id="QI8-d6-tGb"/>
+                                    <constraint firstAttribute="centerX" secondItem="vfg-rk-MvV" secondAttribute="centerX" id="Xfh-Re-Gbk"/>
+                                    <constraint firstAttribute="trailing" secondItem="tKl-yH-XGC" secondAttribute="trailing" constant="36" id="efX-og-q7T"/>
                                     <constraint firstAttribute="height" constant="556" id="ggb-UE-5nb"/>
-                                    <constraint firstItem="qMJ-oc-MeE" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="top" constant="40" id="yYL-nV-KaK"/>
-                                    <constraint firstAttribute="bottom" secondItem="vfg-rk-MvV" secondAttribute="bottom" constant="34" id="z51-6t-syU"/>
+                                    <constraint firstItem="qMJ-oc-MeE" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="top" constant="20" id="qq8-Wj-4D6"/>
+                                    <constraint firstAttribute="height" constant="492" id="wAj-hI-gtd"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -133,59 +150,27 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLq-Zt-0in">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Camera" id="jIh-T2-cxn">
-                                        <barButtonItem key="rightBarButtonItem" title="Chat" id="Rlj-EU-cSi">
-                                            <connections>
-                                                <segue destination="SL2-Tf-hvq" kind="show" identifier="showdialog" id="1HK-8T-iLN"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="bLq-Zt-0in" firstAttribute="top" secondItem="HHe-Sr-TXi" secondAttribute="top" id="9JU-ck-PZR"/>
-                            <constraint firstAttribute="trailing" secondItem="ste-q8-n4N" secondAttribute="trailing" id="HdK-Bp-Zwu"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="top" secondItem="bLq-Zt-0in" secondAttribute="bottom" id="kFd-IH-vXt"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="bottom" secondItem="gkt-n6-Idk" secondAttribute="top" id="qiu-MI-xUH"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="trailing" secondItem="bLq-Zt-0in" secondAttribute="trailing" id="qzd-Ru-Hqz"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leading" id="rNl-wh-cHD"/>
-                            <constraint firstItem="ste-q8-n4N" firstAttribute="leading" secondItem="bLq-Zt-0in" secondAttribute="leading" id="u6H-3d-Mxb"/>
+                            <constraint firstItem="ste-q8-n4N" firstAttribute="top" secondItem="pYz-BA-WbK" secondAttribute="bottom" id="8IT-mL-RaK"/>
+                            <constraint firstItem="ste-q8-n4N" firstAttribute="leading" secondItem="HHe-Sr-TXi" secondAttribute="leadingMargin" constant="-16" id="Bzy-j2-KCs"/>
+                            <constraint firstItem="gkt-n6-Idk" firstAttribute="top" secondItem="ste-q8-n4N" secondAttribute="bottom" id="H30-Ct-3G5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ste-q8-n4N" secondAttribute="trailing" constant="-16" id="Pr2-44-h1G"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="ufn-G1-37W"/>
+                    <navigationItem key="navigationItem" title="Camera" id="ufn-G1-37W"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cameraButton" destination="vfg-rk-MvV" id="34r-zJ-rJj"/>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
+                        <outlet property="chatButton" destination="tKl-yH-XGC" id="Ub6-fL-rdd"/>
                         <outlet property="open" destination="qMJ-oc-MeE" id="v9o-8O-HsN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="-1233"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="nbi-fu-5d8">
-            <objects>
-                <navigationController storyboardIdentifier="navDav" id="SL2-Tf-hvq" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6uM-y6-7b6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="05d-HI-TqW" kind="relationship" relationship="rootViewController" id="tEr-wF-cAw"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vbn-37-clC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1868" y="-1233"/>
+            <point key="canvasLocation" x="1962" y="-1233"/>
         </scene>
         <!--Chat-->
         <scene sceneID="7WM-gr-j4a">
@@ -204,23 +189,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWq-Ox-rGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2566" y="-1229"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="daX-aO-oQK">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="bR8-DZ-ckq" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Waf-GS-uYw">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="H05-pc-mWs" kind="relationship" relationship="rootViewController" id="8mg-nW-zuS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CIc-L3-vOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="436" y="-1251"/>
+            <point key="canvasLocation" x="2726" y="-1233"/>
         </scene>
         <!--Back TableVC-->
         <scene sceneID="zr2-Y2-wwJ">
@@ -367,7 +336,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="camera45-1" id="Jh1-jJ-J8u">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="xOB-hQ-E2e"/>
-                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pEt-2e-EYq"/>
+                                                <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pEt-2e-EYq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -391,7 +360,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XtF-eD-9wk"/>
+                                    <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XtF-eD-9wk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -454,7 +423,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="savePressed:" destination="tYp-do-FId" eventType="touchUpInside" id="OWR-n7-VFh"/>
-                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="yH7-xy-ArV"/>
+                                    <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="yH7-xy-ArV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-EJ-iVA">
@@ -487,7 +456,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="camera45-1" id="Y7j-Sx-5DW">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="TyF-Cw-X4F"/>
-                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dBa-AG-gQ1"/>
+                                                <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dBa-AG-gQ1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -562,7 +531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q6-6H-JJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405" y="234"/>
+            <point key="canvasLocation" x="491" y="318"/>
         </scene>
         <!--Payment View Controller-->
         <scene sceneID="pGn-2z-U67">
@@ -643,7 +612,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XXU-1A-dY3"/>
+                                    <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XXU-1A-dY3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the Expert's advice." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnl-B3-1nW">
@@ -666,7 +635,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="camera45-1" id="BG1-9N-Asf">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="0hf-Z5-dmJ"/>
-                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="RfM-tH-WYs"/>
+                                                <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="RfM-tH-WYs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -696,6 +665,24 @@
             </objects>
             <point key="canvasLocation" x="360" y="1076"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n72-vX-mjy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h9a-1A-gbX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xkq-wD-grG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="H05-pc-mWs" kind="relationship" relationship="rootViewController" id="iOQ-at-R02"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPL-B5-so4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="-1383"/>
+        </scene>
     </scenes>
     <resources>
         <image name="11154714_10153270935774919_205274106914562188_o" width="1151" height="2048"/>
@@ -705,10 +692,11 @@
         <image name="empty_button_2" width="320" height="138"/>
         <image name="hamburger" width="315" height="270"/>
         <image name="hamburger45" width="53" height="45"/>
+        <image name="message" width="355" height="303"/>
         <image name="submit_button" width="850" height="436"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c3M-Aq-MqK"/>
-        <segue reference="RfM-tH-WYs"/>
+        <segue reference="lg1-3J-9qU"/>
+        <segue reference="Weh-F0-u0u"/>
     </inferredMetricsTieBreakers>
 </document>

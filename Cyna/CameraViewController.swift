@@ -120,6 +120,7 @@ class CameraViewController: UIViewController {
                 println("YOOOO")
                 println(data_image)
                 self.capturedImage = data_image!
+                self.cameraView.addSubview(self.chatButton)
                 self.captureSession.stopRunning()
             })
         }
@@ -155,14 +156,15 @@ class CameraViewController: UIViewController {
 //    }
     
     @IBOutlet var chat_button: UIBarButtonItem!
+    @IBOutlet var chatButton: UIButton!
     func goToChat() {
         self.performSegueWithIdentifier("showdialog", sender: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        var dest : DialogViewController = segue.destinationViewController as! DialogViewController
-        let navVC = segue.destinationViewController as! UINavigationController
-        let tableVC = navVC.viewControllers.first as! DialogViewController
-        tableVC.picture = self.capturedImage
+        var dest : DialogViewController = segue.destinationViewController as! DialogViewController
+        //let navVC = segue.destinationViewController as! UINavigationController
+        //let tableVC = segue.viewControllers.first as! DialogViewController
+        dest.picture = self.capturedImage
     }
     
     // captureSession.startRunning() again once we move to the next screen or the picture is dismissed
