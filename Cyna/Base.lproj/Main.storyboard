@@ -599,6 +599,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="gohome:" destination="JAn-hn-ZWD" eventType="touchUpInside" id="4Ku-jP-iRO"/>
                                     <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XXU-1A-dY3"/>
                                 </connections>
                             </button>

@@ -203,7 +203,7 @@ class DialogViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {

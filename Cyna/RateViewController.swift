@@ -14,6 +14,10 @@ class RateViewController: UIViewController {
 //    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var ratingView: RateView!
     
+    @IBAction func gohome(sender: UIButton) {
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("revealController") as! SWRevealViewController
+        self.presentViewController(cameraView, animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
