@@ -93,16 +93,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ste-q8-n4N">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMJ-oc-MeE">
-                                        <rect key="frame" x="16" y="32" width="53" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="53" id="OgO-hp-BOn"/>
-                                            <constraint firstAttribute="height" constant="45" id="VKe-Zv-hIy"/>
-                                        </constraints>
-                                        <state key="normal" backgroundImage="hamburger">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfg-rk-MvV">
                                         <rect key="frame" x="273" y="511" width="55" height="50"/>
                                         <constraints>
@@ -115,6 +105,16 @@
                                         <connections>
                                             <action selector="capturePhoto:" destination="H05-pc-mWs" eventType="touchUpInside" id="gWX-Yu-gio"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMJ-oc-MeE">
+                                        <rect key="frame" x="16" y="32" width="53" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="53" id="OgO-hp-BOn"/>
+                                            <constraint firstAttribute="height" constant="45" id="VKe-Zv-hIy"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="hamburger">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -402,6 +402,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="savePressed:" destination="tYp-do-FId" eventType="touchUpInside" id="OWR-n7-VFh"/>
+                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="yH7-xy-ArV"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-EJ-iVA">
@@ -434,6 +435,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="camera45-1" id="Y7j-Sx-5DW">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="TyF-Cw-X4F"/>
+                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="dBa-AG-gQ1"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -508,6 +510,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="menuButton" destination="bPL-9o-7Ld" id="2cI-uu-nHC"/>
                         <outlet property="profileImage" destination="RsZ-EJ-iVA" id="vxe-bd-a7B"/>
                         <outlet property="profileText" destination="QM3-Ba-jqi" id="Qyy-Zz-EDd"/>
                         <outlet property="userEmail" destination="Zw4-P1-kOx" id="EjY-KO-FDz"/>
@@ -607,6 +610,9 @@
                                     <color key="titleColor" white="0.16" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XXU-1A-dY3"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the Expert's advice." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnl-B3-1nW">
                                 <rect key="frame" x="204" y="108" width="193" height="21"/>
@@ -649,5 +655,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c3M-Aq-MqK"/>
+        <segue reference="yH7-xy-ArV"/>
     </inferredMetricsTieBreakers>
 </document>
