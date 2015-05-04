@@ -149,7 +149,6 @@
                     <connections>
                         <outlet property="cameraButton" destination="vfg-rk-MvV" id="34r-zJ-rJj"/>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
-                        <outlet property="cancelButton" destination="rzj-9k-olB" id="7yU-Yq-b6g"/>
                         <outlet property="open" destination="qMJ-oc-MeE" id="v9o-8O-HsN"/>
                         <segue destination="SL2-Tf-hvq" kind="show" identifier="showdialog" id="ncj-3i-cgi"/>
                     </connections>
