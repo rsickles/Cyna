@@ -38,6 +38,7 @@ class DialogViewController: JSQMessagesViewController {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 // The find succeeded.
+                self.automaticallyScrollsToMostRecentMessage = false;
                 println("Successfully retrieved \(objects!.count) scores.")
                 if let objects = objects as? [PFObject] {
                     for object in objects {
@@ -146,6 +147,7 @@ class DialogViewController: JSQMessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
         sendUserImage(self.picture)
+        self.pullFromParse()
     }
     
     
@@ -181,7 +183,7 @@ class DialogViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
