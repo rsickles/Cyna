@@ -9,7 +9,13 @@
 import UIKit
 
 class ProfileSetUpViewController: UIViewController {
-
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var userPhone: UILabel!
+    @IBOutlet weak var profileText: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveUserInformation()
@@ -37,7 +43,6 @@ class ProfileSetUpViewController: UIViewController {
             
             self.userName.text = result?.objectForKey("name") as? String
             self.userEmail.text = result?.objectForKey("email") as? String
-            self.userPhone.text = result?.objectForKey("phone") as? String
             var imagePath = result?.objectForKey("profile_picture") as? String
             self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath!)!)!)
             self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
@@ -49,13 +54,36 @@ class ProfileSetUpViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    func saveTextToVar(sender: UIButton) {
+    
+    @IBAction func savePressed(sender: AnyObject) {
+        println ("Button is pressed!")
         var text = profileText.text
+         var currentUser = PFUser.currentUser()
+        var query = PFUser.query()
+        
+        
+    }
+    @IBAction func saveTextToVar(sender: UIButton!) {
+        println ("Button is pressed!")
+        var text = profileText.text
+        var currentUser = PFUser.currentUser()
+        var query = PFUser.query()
+//        var query = PFQuery(className:"result")
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
+            (result: PFObject?, error: NSError?) -> Void in
+            println ("I got here")
+            if error != nil {
+                println(error)
+            } else if let result = result {
+                result["profile_information"]=text
+                result.saveInBackground()
+                println (result["profile_information"])
+            }
+        }
+//        currentUser?.objectForKey("profile_information")
+        
     }
     
-//    func saveButton(){
-//        
-//    }
     /*
     // MARK: - Navigation
 
@@ -65,12 +93,6 @@ class ProfileSetUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userEmail: UILabel!
-    @IBOutlet weak var userPhone: UILabel!
-    @IBOutlet weak var profileText: UITextView!
-    @IBOutlet weak var saveButton: UIButton!
     
 
 }
