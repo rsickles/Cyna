@@ -67,9 +67,11 @@ class ProfileSetUpViewController: UIViewController {
         println ("Button is pressed!")
         var text = profileText.text
         var currentUser = PFUser.currentUser()
-        var query = PFQuery(className:"GameScore")
-        query.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
+        var query = PFUser.query()
+//        var query = PFQuery(className:"result")
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
             (result: PFObject?, error: NSError?) -> Void in
+            println ("I got here")
             if error != nil {
                 println(error)
             } else if let result = result {
@@ -78,7 +80,7 @@ class ProfileSetUpViewController: UIViewController {
                 println (result["profile_information"])
             }
         }
-//        currentUser?.objectForKey("profile_information") = text
+//        currentUser?.objectForKey("profile_information")
         
     }
     
