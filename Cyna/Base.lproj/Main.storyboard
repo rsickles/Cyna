@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -601,6 +601,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="camera45-1" id="BG1-9N-Asf">
                                             <connections>
                                                 <action selector="goToChat:" destination="H05-pc-mWs" id="0hf-Z5-dmJ"/>
+                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="RfM-tH-WYs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -622,6 +623,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="menuButton" destination="Yk1-0F-aHG" id="OxO-Ic-34b"/>
                         <outlet property="ratingView" destination="X3x-FJ-cdI" id="Sry-O5-N3Y"/>
                     </connections>
                 </viewController>
@@ -642,6 +644,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c3M-Aq-MqK"/>
-        <segue reference="XXU-1A-dY3"/>
+        <segue reference="RfM-tH-WYs"/>
     </inferredMetricsTieBreakers>
 </document>
