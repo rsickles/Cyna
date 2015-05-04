@@ -15,6 +15,7 @@ class ProfileSetUpViewController: UIViewController {
     @IBOutlet weak var userPhone: UILabel!
     @IBOutlet weak var profileText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,8 @@ class ProfileSetUpViewController: UIViewController {
         // Do any additional setup after loading the view.
         var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
         view.addGestureRecognizer(tap)
+        menuButton.action = "revealToggle:"
+        menuButton.target = self.revealViewController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,34 +58,45 @@ class ProfileSetUpViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
+//    
     @IBAction func savePressed(sender: AnyObject) {
         println ("Button is pressed!")
         var text = profileText.text
-         var currentUser = PFUser.currentUser()
-        var query = PFUser.query()
-        
-        
-    }
-    @IBAction func saveTextToVar(sender: UIButton!) {
-        println ("Button is pressed!")
-        var text = profileText.text
         var currentUser = PFUser.currentUser()
-        var query = PFUser.query()
-//        var query = PFQuery(className:"result")
-        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
-            (result: PFObject?, error: NSError?) -> Void in
-            println ("I got here")
+        var query = PFQuery(className:"_User")
+        query.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
+            (gameScore: PFObject?, error: NSError?) -> Void in
             if error != nil {
                 println(error)
-            } else if let result = result {
-                result["profile_information"]=text
-                result.saveInBackground()
-                println (result["profile_information"])
+            } else if let gameScore = gameScore {
+                gameScore["profile_information"] = text
+                gameScore.saveInBackground()
             }
         }
-//        currentUser?.objectForKey("profile_information")
+        
         
     }
+//    @IBAction func saveTextToVar(sender: UIButton!) {
+//        println ("Button is pressed!")
+//        var text = profileText.text
+//        var currentUser = PFUser.currentUser()
+//        var query = PFUser.query()
+//        var query = PFQuery(className:"result")
+//        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
+//            (result: PFObject?, error: NSError?) -> Void in
+//            println ("I got here")
+//            if error != nil {
+//                println(error)
+//            } else if let result = result {
+//                result["profile_information"]=text
+//                result.saveInBackground()
+//                println (result["profile_information"])
+//            }
+//        }
+//        currentUser?.objectForKey("profile_information")
+        
+//    }
     
     /*
     // MARK: - Navigation
