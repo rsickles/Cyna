@@ -16,6 +16,7 @@ class ProfileSetUpViewController: UIViewController {
     @IBOutlet weak var profileText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,26 +78,6 @@ class ProfileSetUpViewController: UIViewController {
         
         
     }
-//    @IBAction func saveTextToVar(sender: UIButton!) {
-//        println ("Button is pressed!")
-//        var text = profileText.text
-//        var currentUser = PFUser.currentUser()
-//        var query = PFUser.query()
-//        var query = PFQuery(className:"result")
-//        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
-//            (result: PFObject?, error: NSError?) -> Void in
-//            println ("I got here")
-//            if error != nil {
-//                println(error)
-//            } else if let result = result {
-//                result["profile_information"]=text
-//                result.saveInBackground()
-//                println (result["profile_information"])
-//            }
-//        }
-//        currentUser?.objectForKey("profile_information")
-        
-//    }
     
     /*
     // MARK: - Navigation

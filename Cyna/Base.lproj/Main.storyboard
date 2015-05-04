@@ -368,20 +368,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajq-J1-iJd">
-                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="zJe-I7-4ae">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="Hfr-aL-w3x"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Camera" id="RmU-Nh-SxG">
-                                            <connections>
-                                                <action selector="goToChat:" destination="H05-pc-mWs" id="hkg-3V-e9c"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-P1-kOx">
                                 <rect key="frame" x="129" y="172" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -480,19 +466,14 @@
                             <constraint firstItem="3yh-GG-MBv" firstAttribute="leading" secondItem="LB9-Du-kgv" secondAttribute="leadingMargin" constant="259" id="84Z-ge-QPh"/>
                             <constraint firstItem="RsZ-EJ-iVA" firstAttribute="leading" secondItem="LB9-Du-kgv" secondAttribute="leadingMargin" id="A3u-y3-SZe"/>
                             <constraint firstAttribute="centerX" secondItem="Byb-aE-IHf" secondAttribute="centerX" id="GXK-dP-JXX"/>
-                            <constraint firstItem="RsZ-EJ-iVA" firstAttribute="top" secondItem="ajq-J1-iJd" secondAttribute="bottom" constant="45" id="JU4-uf-kX1"/>
                             <constraint firstItem="Mu3-aY-sCz" firstAttribute="top" secondItem="fAS-H0-spA" secondAttribute="bottom" constant="19" id="Kle-9V-XOS"/>
                             <constraint firstItem="l0T-4s-GgF" firstAttribute="top" secondItem="3yh-GG-MBv" secondAttribute="bottom" constant="20" id="Kn7-V8-2BO"/>
                             <constraint firstItem="Mu3-aY-sCz" firstAttribute="leading" secondItem="RsZ-EJ-iVA" secondAttribute="trailing" constant="13" id="MVb-sK-WDC"/>
                             <constraint firstItem="7Go-68-3jB" firstAttribute="top" secondItem="itb-NM-MnI" secondAttribute="bottom" id="N9f-LT-rjz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ajq-J1-iJd" secondAttribute="trailing" constant="-16" id="NQa-eS-f4G"/>
-                            <constraint firstItem="ajq-J1-iJd" firstAttribute="leading" secondItem="LB9-Du-kgv" secondAttribute="leadingMargin" constant="-16" id="O4d-CB-EJe"/>
                             <constraint firstItem="Zw4-P1-kOx" firstAttribute="top" secondItem="Mu3-aY-sCz" secondAttribute="bottom" constant="23" id="VoP-wA-VIf"/>
-                            <constraint firstItem="RsZ-EJ-iVA" firstAttribute="top" secondItem="ajq-J1-iJd" secondAttribute="bottom" constant="25" id="XOe-68-idz"/>
                             <constraint firstItem="Zw4-P1-kOx" firstAttribute="leading" secondItem="RsZ-EJ-iVA" secondAttribute="trailing" constant="13" id="Yzy-m4-SCz"/>
                             <constraint firstItem="3yh-GG-MBv" firstAttribute="top" secondItem="QM3-Ba-jqi" secondAttribute="bottom" constant="106" id="bLG-pC-e3d"/>
                             <constraint firstItem="l0T-4s-GgF" firstAttribute="top" secondItem="3yh-GG-MBv" secondAttribute="bottom" constant="20" id="eOP-uu-7zi"/>
-                            <constraint firstItem="ajq-J1-iJd" firstAttribute="top" secondItem="LB9-Du-kgv" secondAttribute="topMargin" id="hiD-7T-cRx"/>
                             <constraint firstItem="QM3-Ba-jqi" firstAttribute="leading" secondItem="LB9-Du-kgv" secondAttribute="leadingMargin" id="nOl-uc-kVf"/>
                             <constraint firstItem="fAS-H0-spA" firstAttribute="top" secondItem="7Go-68-3jB" secondAttribute="bottom" constant="18" id="oy4-My-UvX"/>
                             <constraint firstAttribute="centerX" secondItem="fAS-H0-spA" secondAttribute="centerX" id="q2M-VM-tlt"/>
@@ -500,16 +481,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="NQa-eS-f4G"/>
-                                <exclude reference="O4d-CB-EJe"/>
-                                <exclude reference="hiD-7T-cRx"/>
-                                <exclude reference="JU4-uf-kX1"/>
-                                <exclude reference="XOe-68-idz"/>
                                 <exclude reference="nOl-uc-kVf"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="Y7j-Sx-5DW" id="SpF-5A-eFj"/>
                         <outlet property="menuButton" destination="bPL-9o-7Ld" id="2cI-uu-nHC"/>
                         <outlet property="profileImage" destination="RsZ-EJ-iVA" id="vxe-bd-a7B"/>
                         <outlet property="profileText" destination="QM3-Ba-jqi" id="Qyy-Zz-EDd"/>
@@ -580,17 +557,6 @@
                                     <constraint firstAttribute="width" constant="474" id="sRM-QG-uOz"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="53i-dw-tik">
-                                <rect key="frame" x="-28" y="20" width="686" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="686" id="6cV-CJ-sdM"/>
-                                    <constraint firstAttribute="height" constant="44" id="cWw-Hk-Phx"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="yGO-sB-Aao"/>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="unj-Bz-Mvy">
                                 <rect key="frame" x="256" y="18" width="88" height="46"/>
                                 <constraints>
@@ -620,18 +586,38 @@
                                 <color key="textColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53i-dw-tik">
+                                <rect key="frame" x="0.0" y="19" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="rjp-xa-m2d"/>
+                                    <constraint firstAttribute="height" constant="44" id="v9V-LY-Nt9"/>
+                                </constraints>
+                                <color key="tintColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem id="Ccl-rq-jXJ">
+                                        <barButtonItem key="leftBarButtonItem" image="hamburger45" id="Yk1-0F-aHG"/>
+                                        <barButtonItem key="rightBarButtonItem" image="camera45-1" id="BG1-9N-Asf">
+                                            <connections>
+                                                <action selector="goToChat:" destination="H05-pc-mWs" id="0hf-Z5-dmJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="53i-dw-tik" secondAttribute="bottom" constant="90" id="1c7-ZB-hhB"/>
                             <constraint firstAttribute="centerX" secondItem="oGB-rY-N3H" secondAttribute="centerX" id="JvZ-C7-Ky0"/>
+                            <constraint firstItem="53i-dw-tik" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="-1" id="LXh-sW-XZm"/>
                             <constraint firstItem="unj-Bz-Mvy" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="-2" id="Lfx-Zt-JaL"/>
                             <constraint firstAttribute="centerX" secondItem="X3x-FJ-cdI" secondAttribute="centerX" id="NUx-56-dCO"/>
+                            <constraint firstItem="Hnl-B3-1nW" firstAttribute="top" secondItem="53i-dw-tik" secondAttribute="bottom" constant="45" id="NxY-2I-5so"/>
                             <constraint firstItem="oGB-rY-N3H" firstAttribute="top" secondItem="X3x-FJ-cdI" secondAttribute="bottom" constant="117" id="Onp-CL-pcX"/>
-                            <constraint firstItem="Hnl-B3-1nW" firstAttribute="top" secondItem="53i-dw-tik" secondAttribute="bottom" constant="44" id="SiW-iM-keu"/>
-                            <constraint firstItem="53i-dw-tik" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" id="c5f-H0-uLQ"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="Hnl-B3-1nW" secondAttribute="bottom" constant="25" id="fT5-7h-x47"/>
                             <constraint firstAttribute="centerX" secondItem="unj-Bz-Mvy" secondAttribute="centerX" id="hoZ-tN-z0g"/>
                             <constraint firstAttribute="centerX" secondItem="Hnl-B3-1nW" secondAttribute="centerX" id="pr1-x7-8xI"/>
+                            <constraint firstAttribute="centerX" secondItem="53i-dw-tik" secondAttribute="centerX" id="y6x-J8-Dh6"/>
                         </constraints>
                     </view>
                     <connections>
@@ -655,6 +641,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c3M-Aq-MqK"/>
-        <segue reference="yH7-xy-ArV"/>
+        <segue reference="XXU-1A-dY3"/>
     </inferredMetricsTieBreakers>
 </document>
