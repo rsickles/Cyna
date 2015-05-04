@@ -54,6 +54,8 @@ class ProfileSetUpViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    @IBAction func menuButton(sender: AnyObject) {
+    }
     
     @IBAction func savePressed(sender: AnyObject) {
         println ("Button is pressed!")
