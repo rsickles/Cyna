@@ -185,7 +185,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Chat" id="pcB-eS-bLZ"/>
+                    <navigationItem key="navigationItem" title="Chat" id="pcB-eS-bLZ">
+                        <barButtonItem key="rightBarButtonItem" title="End Chat" id="j50-gN-WgM">
+                            <connections>
+                                <action selector="EndChat:" destination="05d-HI-TqW" id="udh-ZT-6H2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWq-Ox-rGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -575,7 +581,7 @@
         <!--Rate View Controller-->
         <scene sceneID="aNt-WS-abz">
             <objects>
-                <viewController id="JAn-hn-ZWD" customClass="RateViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rateView" id="JAn-hn-ZWD" customClass="RateViewController" customModule="Cyna" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OtY-bj-tUv"/>
                         <viewControllerLayoutGuide type="bottom" id="fXS-fp-rFB"/>
@@ -588,24 +594,22 @@
                                 <rect key="frame" x="63" y="154" width="474" height="84"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="pzY-LY-l7a"/>
-                                    <constraint firstAttribute="width" constant="474" id="sRM-QG-uOz"/>
+                                    <constraint firstAttribute="height" constant="84" id="KxW-EB-fs6"/>
+                                    <constraint firstAttribute="width" constant="474" id="lX8-Xn-pYj"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="unj-Bz-Mvy">
                                 <rect key="frame" x="256" y="18" width="88" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="h9H-eM-yTQ"/>
-                                    <constraint firstAttribute="width" constant="88" id="iOq-BG-hri"/>
+                                    <constraint firstAttribute="width" constant="88" id="Emh-hT-0Tc"/>
+                                    <constraint firstAttribute="height" constant="46" id="HBS-zo-d1o"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-rY-N3H">
                                 <rect key="frame" x="250" y="355" width="100" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Dw6-Jy-apq"/>
-                                    <constraint firstAttribute="height" constant="56" id="JfX-H9-wCc"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="XCX-Ew-6Pv"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="q8D-Uj-acq"/>
+                                    <constraint firstAttribute="width" constant="100" id="UFQ-QB-w9A"/>
+                                    <constraint firstAttribute="height" constant="56" id="Vrg-Z8-bJq"/>
                                 </constraints>
                                 <state key="normal" title="Button" backgroundImage="submit_button">
                                     <color key="titleColor" white="0.16" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -617,47 +621,28 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate the Expert's advice." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnl-B3-1nW">
                                 <rect key="frame" x="204" y="108" width="193" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Ifl-tf-hCC"/>
+                                    <constraint firstAttribute="width" constant="193" id="ds5-nn-trM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="53i-dw-tik">
-                                <rect key="frame" x="0.0" y="19" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="rjp-xa-m2d"/>
-                                    <constraint firstAttribute="height" constant="44" id="v9V-LY-Nt9"/>
-                                </constraints>
-                                <color key="tintColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <navigationItem id="Ccl-rq-jXJ">
-                                        <barButtonItem key="leftBarButtonItem" image="hamburger45" id="Yk1-0F-aHG"/>
-                                        <barButtonItem key="rightBarButtonItem" image="camera45-1" id="BG1-9N-Asf">
-                                            <connections>
-                                                <action selector="goToChat:" destination="H05-pc-mWs" id="0hf-Z5-dmJ"/>
-                                                <segue destination="h9a-1A-gbX" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="RfM-tH-WYs"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="oGB-rY-N3H" secondAttribute="centerX" id="JvZ-C7-Ky0"/>
-                            <constraint firstItem="53i-dw-tik" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="-1" id="LXh-sW-XZm"/>
-                            <constraint firstItem="unj-Bz-Mvy" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="-2" id="Lfx-Zt-JaL"/>
-                            <constraint firstAttribute="centerX" secondItem="X3x-FJ-cdI" secondAttribute="centerX" id="NUx-56-dCO"/>
-                            <constraint firstItem="Hnl-B3-1nW" firstAttribute="top" secondItem="53i-dw-tik" secondAttribute="bottom" constant="45" id="NxY-2I-5so"/>
-                            <constraint firstItem="oGB-rY-N3H" firstAttribute="top" secondItem="X3x-FJ-cdI" secondAttribute="bottom" constant="117" id="Onp-CL-pcX"/>
-                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="Hnl-B3-1nW" secondAttribute="bottom" constant="25" id="fT5-7h-x47"/>
-                            <constraint firstAttribute="centerX" secondItem="unj-Bz-Mvy" secondAttribute="centerX" id="hoZ-tN-z0g"/>
-                            <constraint firstAttribute="centerX" secondItem="Hnl-B3-1nW" secondAttribute="centerX" id="pr1-x7-8xI"/>
-                            <constraint firstAttribute="centerX" secondItem="53i-dw-tik" secondAttribute="centerX" id="y6x-J8-Dh6"/>
+                            <constraint firstItem="Hnl-B3-1nW" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="88" id="JWp-Ct-bYu"/>
+                            <constraint firstItem="unj-Bz-Mvy" firstAttribute="top" secondItem="fs9-iM-Zh2" secondAttribute="topMargin" constant="18" id="To7-vB-5Zn"/>
+                            <constraint firstAttribute="centerX" secondItem="unj-Bz-Mvy" secondAttribute="centerX" id="ZdK-z9-f47"/>
+                            <constraint firstAttribute="centerX" secondItem="oGB-rY-N3H" secondAttribute="centerX" id="aKv-1u-tYz"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="134" id="eYW-XP-T4m"/>
+                            <constraint firstItem="oGB-rY-N3H" firstAttribute="top" secondItem="X3x-FJ-cdI" secondAttribute="bottom" constant="117" id="jbH-iU-FQ2"/>
+                            <constraint firstAttribute="centerX" secondItem="Hnl-B3-1nW" secondAttribute="centerX" id="oSo-1l-S9O"/>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="leading" secondItem="fs9-iM-Zh2" secondAttribute="leadingMargin" constant="47" id="pUl-Lx-5cf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="menuButton" destination="Yk1-0F-aHG" id="OxO-Ic-34b"/>
                         <outlet property="ratingView" destination="X3x-FJ-cdI" id="Sry-O5-N3Y"/>
                     </connections>
                 </viewController>
@@ -696,7 +681,7 @@
         <image name="submit_button" width="850" height="436"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XXU-1A-dY3"/>
         <segue reference="lg1-3J-9qU"/>
-        <segue reference="Weh-F0-u0u"/>
     </inferredMetricsTieBreakers>
 </document>

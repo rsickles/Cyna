@@ -203,7 +203,7 @@ class DialogViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(10.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -216,6 +216,31 @@ class DialogViewController: JSQMessagesViewController {
     }
     // ACTIONS
     
+    @IBAction func EndChat(sender: UIBarButtonItem) {
+        self.timer.invalidate()
+        var query = PFQuery(className:"Message")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]?, error: NSError?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                println("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects as? [PFObject] {
+                    for object in objects {
+                        println("WHATsa")
+                        object.deleteInBackground()
+                    }
+                }
+            } else {
+                // Log details of the failure
+                println("Error: \(error!) \(error!.userInfo!)")
+            }
+        }
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("rateView") as! RateViewController
+        self.presentViewController(cameraView, animated: true, completion: nil)
+    }
+    
+ 
     func receivedMessagePressed(sender: UIBarButtonItem) {
         // Simulate reciving message
         showTypingIndicator = !showTypingIndicator
