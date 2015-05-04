@@ -156,8 +156,7 @@ class CameraViewController: UIViewController {
     
     @IBOutlet var chat_button: UIBarButtonItem!
     func goToChat() {
-        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("dialog") as! DialogViewController
-        self.presentViewController(cameraView, animated: true, completion: nil)
+        self.performSegueWithIdentifier("showdialog", sender: self)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        var dest : DialogViewController = segue.destinationViewController as! DialogViewController

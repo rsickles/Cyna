@@ -150,6 +150,7 @@
                         <outlet property="cameraButton" destination="vfg-rk-MvV" id="34r-zJ-rJj"/>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
                         <outlet property="open" destination="qMJ-oc-MeE" id="v9o-8O-HsN"/>
+                        <segue destination="SL2-Tf-hvq" kind="show" identifier="showdialog" id="ncj-3i-cgi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kX-4y-Yvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -159,7 +160,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nbi-fu-5d8">
             <objects>
-                <navigationController id="SL2-Tf-hvq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navDav" id="SL2-Tf-hvq" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6uM-y6-7b6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
