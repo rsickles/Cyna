@@ -18,7 +18,6 @@ class CameraViewController: UIViewController {
     //@IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraView: UIView!
     
-    
     // If we find a device we'll store it here for later use
     var captureDevice : AVCaptureDevice?
     //holds the image take
@@ -27,6 +26,7 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
+
         //side menu stuff
         open.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
 //        open.target = self.revealViewController()
@@ -66,6 +66,8 @@ class CameraViewController: UIViewController {
                 if(active){
                     //expert so dont show camera screen
                     self.goToChat()
+                    self.cameraButton.hidden = true
+                    
                 }else {
                     //if user is not an expert
                     self.beginSession()
@@ -187,6 +189,7 @@ class CameraViewController: UIViewController {
             //code
             if(result!.objectForKey("account_type") as! String == "expert") {
                 completion(true)
+                self.cameraButton.hidden = true
             }
             else {
                 completion(false)
