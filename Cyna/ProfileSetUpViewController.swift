@@ -14,6 +14,8 @@ class ProfileSetUpViewController: UIViewController {
         super.viewDidLoad()
         self.retrieveUserInformation()
         // Do any additional setup after loading the view.
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,16 +30,24 @@ class ProfileSetUpViewController: UIViewController {
         query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
             //code
             println(result)
+//            self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2
+//            self.profileImage.layer.masksToBounds = true
+//            self.profileImage.layer.borderWidth = 0;
+
+            
             self.userName.text = result?.objectForKey("name") as? String
             self.userEmail.text = result?.objectForKey("email") as? String
             self.userPhone.text = result?.objectForKey("phone") as? String
-            var imagePath: String = "https://graph.facebook.com/"
-            imagePath = (result?.objectForKey("profile_picture") as? String)!
-            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath)!)!)
+            var imagePath = result?.objectForKey("profile_picture") as? String
+            self.profileImage.image = UIImage(data: NSData(contentsOfURL: NSURL(string:imagePath!)!)!)
             self.profileImage.contentMode = UIViewContentMode.ScaleAspectFit
             self.profileText.text =
                 result?.objectForKey("profile_information") as? String
         })
+    }
+    func DismissKeyboard(){
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 //    func saveTextToVar(sender: ) {
 //        var text: String?= profileText.text

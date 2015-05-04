@@ -13,7 +13,7 @@ class BackTableVC: UITableViewController {
     var TableArray = [String]()
     var account_id: String = ""
     override func viewDidLoad() {
-        TableArray = ["Become An Expert","Credit/Payment","Logout"]
+        TableArray = ["Edit Profile","Become An Expert","Credit/Payment","Logout"]
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2
