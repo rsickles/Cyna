@@ -74,7 +74,9 @@ class DialogViewController: JSQMessagesViewController {
             userImageFile!.getDataInBackgroundWithBlock({ (data:NSData?, error:NSError?) -> Void in
                 if(error == nil){
                     mediaItem.image = UIImage(data: data!)
+                    if(self.messages.count > 0) {
                     self.collectionView.reloadData()
+                    }
                 }
             })
         }
@@ -104,7 +106,10 @@ class DialogViewController: JSQMessagesViewController {
                 // There was a problem, check error.description
             }
         }
+        if(messages.count > 0)
+        {
         self.finishSendingMessage()
+        }
 
     }
 
@@ -170,7 +175,9 @@ class DialogViewController: JSQMessagesViewController {
                 // There was a problem, check error.description
             }
         }
+        if(messages.count > 0){
         self.finishSendingMessage()
+        }
 
     }
     
@@ -211,19 +218,26 @@ class DialogViewController: JSQMessagesViewController {
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         sendMessage(text, sender: self.senderDisplayName)
+        if(messages.count > 0){
         finishSendingMessage()
+        }
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
+        println("RYUUUNNN")
+        if(messages.count > 0 ){
         return messages[indexPath.item]
+        }
+        return nil
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         //bubbleImageViewForItemAtIndexPath
         //UIImageView!
+        println("HUUUUUU")
         let message = messages[indexPath.item]
         if message.senderDisplayName == senderDisplayName {
 //             return UIImageView(image: outgoingBubbleImageView.messageBubbleImage, highlightedImage: outgoingBubbleImageView.messageBubbleHighlightedImage)
@@ -246,7 +260,7 @@ class DialogViewController: JSQMessagesViewController {
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as! JSQMessagesCollectionViewCell
-        
+        println("VAAAAAA")
         let message = messages[indexPath.item]
         println("GATTEESSSSS")
         println(message.senderDisplayName)
@@ -265,6 +279,7 @@ class DialogViewController: JSQMessagesViewController {
     
 //    // View  usernames above bubbles
     override func collectionView(collectionView: JSQMessagesCollectionView!, attributedTextForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> NSAttributedString! {
+        println("HHHHHHHHH")
         let message = messages[indexPath.item];
         
         // Sent by me, skip
@@ -274,6 +289,7 @@ class DialogViewController: JSQMessagesViewController {
         
         // Same as previous sender, skip
         if indexPath.item > 0 {
+            println("jijiijiji")
             let previousMessage = messages[indexPath.item - 1];
             if previousMessage.senderDisplayName == message.senderDisplayName {
                 return nil;
@@ -284,7 +300,10 @@ class DialogViewController: JSQMessagesViewController {
     }
 
     override func collectionView(collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        let message = messages[indexPath.item]
+        println("JKJKJKJK")
+        if(messages.count > 0 ){
+            let message = messages[indexPath.item]
+        
         
 //        // Sent by me, skip
         if message.senderDisplayName == senderDisplayName {
@@ -293,6 +312,7 @@ class DialogViewController: JSQMessagesViewController {
 //
 //        // Same as previous sender, skip
         if indexPath.item > 0 {
+            println("LOOOOOOOO")
             let previousMessage = messages[indexPath.item - 1];
             if previousMessage.senderDisplayName == message.senderDisplayName {
                 return CGFloat(0.0);
@@ -300,6 +320,9 @@ class DialogViewController: JSQMessagesViewController {
         }
         
         return kJSQMessagesCollectionViewCellLabelHeightDefault
+    }
+    
+    return 0.0
     }
 
 }
