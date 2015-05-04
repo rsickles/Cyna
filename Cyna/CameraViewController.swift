@@ -14,6 +14,9 @@ class CameraViewController: UIViewController {
     var videoInput:AVCaptureInput!
     var stillImageOutput:AVCaptureStillImageOutput!
     
+    @IBAction func cancelButtonAction(sender: UIButton) {
+    }
+    @IBOutlet var cancelButton: UIButton!
     @IBOutlet var open: UIButton!
     //@IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraView: UIView!
@@ -31,7 +34,7 @@ class CameraViewController: UIViewController {
         open.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
 //        open.target = self.revealViewController()
 //        open.action = Selector("revealToggle:")
-        
+        self.cancelButton.removeFromSuperview()
         if(varView == 0){
             //log out of app 
         }
@@ -121,6 +124,8 @@ class CameraViewController: UIViewController {
                 println(data_image)
                 self.capturedImage = data_image!
                 self.captureSession.stopRunning()
+                self.cameraView.addSubview(self.cancelButton)
+                self.cameraButton.removeFromSuperview()
             })
         }
 

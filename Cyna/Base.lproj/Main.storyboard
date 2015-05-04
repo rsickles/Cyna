@@ -116,6 +116,15 @@
                                             <action selector="capturePhoto:" destination="H05-pc-mWs" eventType="touchUpInside" id="gWX-Yu-gio"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzj-9k-olB">
+                                        <rect key="frame" x="485" y="40" width="59" height="30"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonAction:" destination="H05-pc-mWs" eventType="touchUpInside" id="KWf-T3-T3b"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -149,6 +158,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="vfg-rk-MvV" id="34r-zJ-rJj"/>
                         <outlet property="cameraView" destination="ste-q8-n4N" id="81z-ae-FS3"/>
+                        <outlet property="cancelButton" destination="rzj-9k-olB" id="7yU-Yq-b6g"/>
                         <outlet property="open" destination="qMJ-oc-MeE" id="v9o-8O-HsN"/>
                         <segue destination="SL2-Tf-hvq" kind="show" identifier="showdialog" id="ncj-3i-cgi"/>
                     </connections>
