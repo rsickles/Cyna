@@ -38,7 +38,6 @@ class DialogViewController: JSQMessagesViewController {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             if error == nil {
                 // The find succeeded.
-                self.automaticallyScrollsToMostRecentMessage = false;
                 println("Successfully retrieved \(objects!.count) scores.")
                 if let objects = objects as? [PFObject] {
                     for object in objects {
@@ -64,12 +63,13 @@ class DialogViewController: JSQMessagesViewController {
         println("PRINT TEXT")
         let userImageFile = object["image"] as? PFFile
         println("PRINT FILE")
+        let sender = object["sender"] as? String
         //add video
         if(text == nil){
             println("PIC")
             let mediaItem = JSQPhotoMediaItem(image: nil)
             mediaItem.appliesMediaViewMaskAsOutgoing = PFUser.currentUser()!.objectForKey("name") as? String == self.senderDisplayName
-            message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, media: mediaItem)
+            message = JSQMessage(senderId: self.senderId, displayName: sender, media: mediaItem)
             userImageFile!.getDataInBackgroundWithBlock({ (data:NSData?, error:NSError?) -> Void in
                 if(error == nil){
                     mediaItem.image = UIImage(data: data!)
@@ -80,7 +80,7 @@ class DialogViewController: JSQMessagesViewController {
         // add text
         else {
             println("TEXT")
-            message = JSQMessage(senderId: self.senderId, displayName: self.senderDisplayName, text:text)
+            message = JSQMessage(senderId: self.senderId, displayName: sender, text:text)
         }
         self.messages.append(message)
         println("Sameuel")
@@ -91,18 +91,20 @@ class DialogViewController: JSQMessagesViewController {
         var message = PFObject(className:"Message")
         println("HAHAH NOPE")
         message["text"] = text
+        message["sender"] = sender
         //message["sender_display_name"] = self.senderDisplayName
         message.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
-                self.finishSendingMessage()
                 self.pullFromParse()
                 println("The image Has been saved")
             } else {
                 // There was a problem, check error.description
             }
         }
+        self.finishSendingMessage()
+
     }
 
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
@@ -147,7 +149,6 @@ class DialogViewController: JSQMessagesViewController {
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
         sendUserImage(self.picture)
-        self.pullFromParse()
     }
     
     
@@ -156,16 +157,19 @@ class DialogViewController: JSQMessagesViewController {
         let imageData = self.scaleImageToSize(10485760, image: picture)
         let imageFile = PFFile(name: "userimg.png", data: imageData)
         message["image"] = imageFile
+        message["sender"] = self.senderDisplayName
         message.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
                 println("The image Has been saved")
-                self.finishSendingMessage()
+                //self.finishSendingMessage()
             } else {
                 // There was a problem, check error.description
             }
         }
+        self.finishSendingMessage()
+
     }
     
     func scaleImageToSize(floatNumber:Int, image:UIImage) -> NSData{
@@ -183,7 +187,7 @@ class DialogViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: false)
     }
     
     override func viewWillDisappear(animated: Bool) {
