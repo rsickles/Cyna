@@ -581,14 +581,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3x-FJ-cdI" customClass="RateView" customModule="Cyna" customModuleProvider="target">
-                                <rect key="frame" x="63" y="154" width="474" height="84"/>
-                                <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="KxW-EB-fs6"/>
-                                    <constraint firstAttribute="width" constant="474" id="lX8-Xn-pYj"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="unj-Bz-Mvy">
                                 <rect key="frame" x="256" y="18" width="88" height="46"/>
                                 <constraints>
@@ -596,7 +588,7 @@
                                     <constraint firstAttribute="height" constant="46" id="HBS-zo-d1o"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-rY-N3H">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-rY-N3H">
                                 <rect key="frame" x="250" y="355" width="100" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="UFQ-QB-w9A"/>
@@ -620,17 +612,24 @@
                                 <color key="textColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X3x-FJ-cdI" customClass="RateView" customModule="Cyna" customModuleProvider="target">
+                                <rect key="frame" x="136" y="169" width="339" height="59"/>
+                                <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="339" id="UoP-BQ-wMr"/>
+                                    <constraint firstAttribute="height" constant="59" id="vJd-oE-ypg"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="Hnl-B3-1nW" secondAttribute="bottom" constant="40" id="2ir-UH-qzv"/>
+                            <constraint firstAttribute="centerX" secondItem="X3x-FJ-cdI" secondAttribute="centerX" id="BOk-k8-rzP"/>
                             <constraint firstItem="Hnl-B3-1nW" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="88" id="JWp-Ct-bYu"/>
                             <constraint firstItem="unj-Bz-Mvy" firstAttribute="top" secondItem="fs9-iM-Zh2" secondAttribute="topMargin" constant="18" id="To7-vB-5Zn"/>
                             <constraint firstAttribute="centerX" secondItem="unj-Bz-Mvy" secondAttribute="centerX" id="ZdK-z9-f47"/>
                             <constraint firstAttribute="centerX" secondItem="oGB-rY-N3H" secondAttribute="centerX" id="aKv-1u-tYz"/>
-                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="top" secondItem="OtY-bj-tUv" secondAttribute="bottom" constant="134" id="eYW-XP-T4m"/>
-                            <constraint firstItem="oGB-rY-N3H" firstAttribute="top" secondItem="X3x-FJ-cdI" secondAttribute="bottom" constant="117" id="jbH-iU-FQ2"/>
                             <constraint firstAttribute="centerX" secondItem="Hnl-B3-1nW" secondAttribute="centerX" id="oSo-1l-S9O"/>
-                            <constraint firstItem="X3x-FJ-cdI" firstAttribute="leading" secondItem="fs9-iM-Zh2" secondAttribute="leadingMargin" constant="47" id="pUl-Lx-5cf"/>
                         </constraints>
                     </view>
                     <connections>

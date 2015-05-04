@@ -10,8 +10,8 @@ import UIKit
 
 class RateViewController: UIViewController {
 
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
+//    @IBOutlet weak var cameraButton: UIBarButtonItem!
+//    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var ratingView: RateView!
     
     override func viewDidLoad() {
@@ -28,8 +28,8 @@ class RateViewController: UIViewController {
         self.ratingView.minRating = 0
         self.ratingView.rating = 0
         self.ratingView.editable = true
-        menuButton.action = "revealToggle:"
-        menuButton.target = self.revealViewController()
+//        menuButton.action = "revealToggle:"
+//        menuButton.target = self.revealViewController()
         
     }
     override func didReceiveMemoryWarning() {
