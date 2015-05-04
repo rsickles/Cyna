@@ -117,7 +117,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="512" id="DWr-0l-o2b"/>
                                     <constraint firstAttribute="bottom" secondItem="vfg-rk-MvV" secondAttribute="bottom" constant="39" id="HTv-lc-kyJ"/>
