@@ -54,9 +54,9 @@ class ProfileSetUpViewController: UIViewController {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
-    @IBAction func menuButton(sender: AnyObject) {
-    }
-    
+//    @IBAction func menuButton(sender: AnyObject) {
+//    }
+//    
     @IBAction func savePressed(sender: AnyObject) {
         println ("Button is pressed!")
         var text = profileText.text
@@ -65,26 +65,26 @@ class ProfileSetUpViewController: UIViewController {
         
         
     }
-    @IBAction func saveTextToVar(sender: UIButton!) {
-        println ("Button is pressed!")
-        var text = profileText.text
-        var currentUser = PFUser.currentUser()
-        var query = PFUser.query()
+//    @IBAction func saveTextToVar(sender: UIButton!) {
+//        println ("Button is pressed!")
+//        var text = profileText.text
+//        var currentUser = PFUser.currentUser()
+//        var query = PFUser.query()
 //        var query = PFQuery(className:"result")
-        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
-            (result: PFObject?, error: NSError?) -> Void in
-            println ("I got here")
-            if error != nil {
-                println(error)
-            } else if let result = result {
-                result["profile_information"]=text
-                result.saveInBackground()
-                println (result["profile_information"])
-            }
-        }
+//        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!) {
+//            (result: PFObject?, error: NSError?) -> Void in
+//            println ("I got here")
+//            if error != nil {
+//                println(error)
+//            } else if let result = result {
+//                result["profile_information"]=text
+//                result.saveInBackground()
+//                println (result["profile_information"])
+//            }
+//        }
 //        currentUser?.objectForKey("profile_information")
         
-    }
+//    }
     
     /*
     // MARK: - Navigation
