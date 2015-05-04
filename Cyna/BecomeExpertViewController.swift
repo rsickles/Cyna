@@ -9,12 +9,17 @@
 import UIKit
 
 class BecomeExpertViewController: UIViewController {
-
-    @IBOutlet var barButton: UINavigationItem!
+    
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+//    @IBOutlet var barButton: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "Back")
-        self.barButton.leftBarButtonItem = backButton
+//        let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: self, action: "Back")
+//        self.barButton.leftBarButtonItem = backButton
+        menuButton.action = "revealToggle:"
+        menuButton.target = self.revealViewController()
         // Do any additional setup after loading the view.
     }
 

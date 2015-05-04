@@ -10,7 +10,7 @@ import UIKit
 
 class RateViewController: UIViewController {
 
-
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var ratingView: RateView!
     

@@ -12,7 +12,6 @@ class ProfileSetUpViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
-    @IBOutlet weak var userPhone: UILabel!
     @IBOutlet weak var profileText: UITextView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var menuButton: UIBarButtonItem!

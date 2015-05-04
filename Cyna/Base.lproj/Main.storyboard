@@ -164,6 +164,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6uM-y6-7b6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="05d-HI-TqW" kind="relationship" relationship="rootViewController" id="tEr-wF-cAw"/>
@@ -186,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Ffo-le-Okw"/>
+                    <navigationItem key="navigationItem" id="pcB-eS-bLZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWq-Ox-rGE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -322,36 +324,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-Ns-d17">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Become an Expert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqM-Ac-ivI">
+                                <rect key="frame" x="229" y="106" width="205" height="25"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Please email cynafashion@gmail.com with your fashion portfolio and about why you want to become an fashion expert for Cyna. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="teI-lh-bLQ">
+                                <rect key="frame" x="50" y="164" width="501" height="199"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="199" id="f0e-C9-2vW"/>
+                                    <constraint firstAttribute="width" constant="501" id="tSB-Nu-ax7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxz-Ns-d17">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Hiq-7l-7Zx"/>
                                     <constraint firstAttribute="width" constant="600" id="SmU-YK-bB3"/>
                                 </constraints>
+                                <color key="tintColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.2470588235" green="0.08235294118" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem id="V4z-In-XVU">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="LZW-y3-ggz"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Chat" id="PDb-9Q-bE3">
+                                    <navigationItem id="w3Z-SL-XuH">
+                                        <barButtonItem key="leftBarButtonItem" image="hamburger45" id="O2N-9l-IZl"/>
+                                        <barButtonItem key="rightBarButtonItem" image="camera45-1" id="Jh1-jJ-J8u">
                                             <connections>
-                                                <action selector="goToChat:" destination="H05-pc-mWs" id="CG3-U5-s04"/>
+                                                <action selector="goToChat:" destination="H05-pc-mWs" id="xOB-hQ-E2e"/>
+                                                <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="pEt-2e-EYq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CRG-cJ-VTR">
-                                <rect key="frame" x="245" y="0.0" width="88" height="46"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyna_logo" translatesAutoresizingMaskIntoConstraints="NO" id="CRG-cJ-VTR">
+                                <rect key="frame" x="256" y="18" width="88" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="8VB-14-1YT"/>
+                                    <constraint firstAttribute="height" constant="46" id="bgy-U3-sKD"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Become an Expert" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QqM-Ac-ivI">
-                                <rect key="frame" x="223" y="61" width="142" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgw-Bc-IFO">
+                                <rect key="frame" x="267" y="293" width="89" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="58R-dm-4rN"/>
+                                    <constraint firstAttribute="width" constant="89" id="7mM-wx-e61"/>
+                                </constraints>
+                                <state key="normal" title="Ok" backgroundImage="empty_button_2">
+                                    <color key="titleColor" red="0.97761900229999998" green="1" blue="0.97336729050000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="H05-pc-mWs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="XtF-eD-9wk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="teI-lh-bLQ" firstAttribute="leading" secondItem="cDL-S2-8AY" secondAttribute="leadingMargin" constant="34" id="3uV-Dk-Gog"/>
+                            <constraint firstAttribute="centerX" secondItem="QqM-Ac-ivI" secondAttribute="centerX" id="66K-a6-rWc"/>
+                            <constraint firstItem="Ffi-TC-NSc" firstAttribute="top" secondItem="teI-lh-bLQ" secondAttribute="bottom" constant="237" id="80B-k7-7Rs"/>
+                            <constraint firstAttribute="centerX" secondItem="teI-lh-bLQ" secondAttribute="centerX" id="GKe-Go-YV2"/>
+                            <constraint firstAttribute="centerX" secondItem="CRG-cJ-VTR" secondAttribute="centerX" id="PNj-Rb-kRw"/>
+                            <constraint firstItem="Zgw-Bc-IFO" firstAttribute="top" secondItem="QqM-Ac-ivI" secondAttribute="bottom" constant="162" id="ewP-ys-hzv"/>
+                            <constraint firstAttribute="centerX" secondItem="Zgw-Bc-IFO" secondAttribute="centerX" constant="-11.5" id="fbN-G9-efe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="teI-lh-bLQ" secondAttribute="trailing" constant="33" id="iwQ-OI-6eC"/>
+                            <constraint firstItem="QqM-Ac-ivI" firstAttribute="top" secondItem="jxz-Ns-d17" secondAttribute="bottom" constant="42" id="kX7-jk-uUx"/>
+                            <constraint firstAttribute="centerX" secondItem="jxz-Ns-d17" secondAttribute="centerX" id="lvv-UT-2QY"/>
+                            <constraint firstItem="QqM-Ac-ivI" firstAttribute="top" secondItem="CRG-cJ-VTR" secondAttribute="bottom" constant="42" id="uFH-5L-yRx"/>
+                            <constraint firstItem="jxz-Ns-d17" firstAttribute="top" secondItem="Ou4-me-HC3" secondAttribute="bottom" id="xHv-cQ-UPd"/>
+                            <constraint firstItem="CRG-cJ-VTR" firstAttribute="top" secondItem="Ou4-me-HC3" secondAttribute="bottom" constant="-2" id="yby-iZ-3iE"/>
+                            <constraint firstItem="teI-lh-bLQ" firstAttribute="top" secondItem="QqM-Ac-ivI" secondAttribute="bottom" constant="37" id="zEd-iH-Nfv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="Jh1-jJ-J8u" id="8te-t2-x5E"/>
+                        <outlet property="menuButton" destination="O2N-9l-IZl" id="blg-ad-Dsa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAU-fS-qYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -644,6 +697,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="c3M-Aq-MqK"/>
-        <segue reference="RfM-tH-WYs"/>
+        <segue reference="pEt-2e-EYq"/>
     </inferredMetricsTieBreakers>
 </document>
