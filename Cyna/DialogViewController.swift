@@ -32,6 +32,7 @@ class DialogViewController: JSQMessagesViewController {
         println("starting parse")
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
         var query = PFQuery(className:"Message")
+        self.messages = [JSQMessage]()
         query.limit = 25
         query.orderByAscending("createdAt")
         query.findObjectsInBackgroundWithBlock {
@@ -164,6 +165,7 @@ class DialogViewController: JSQMessagesViewController {
                 // The object has been saved.
                 println("The image Has been saved")
                 //self.finishSendingMessage()
+                self.pullFromParse()
             } else {
                 // There was a problem, check error.description
             }
@@ -187,7 +189,7 @@ class DialogViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: false)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: Selector("pullFromParse"), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
