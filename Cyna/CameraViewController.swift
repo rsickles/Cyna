@@ -14,7 +14,7 @@ class CameraViewController: UIViewController {
     var videoInput:AVCaptureInput!
     var stillImageOutput:AVCaptureStillImageOutput!
     
-    @IBOutlet var open: UIBarButtonItem!
+    @IBOutlet var open: UIButton!
     //@IBOutlet var imageView: UIImageView!
     @IBOutlet var cameraView: UIView!
     
@@ -28,8 +28,10 @@ class CameraViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         super.viewDidLoad()
         //side menu stuff
-        open.target = self.revealViewController()
-        open.action = Selector("revealToggle:")
+        open.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: UIControlEvents.TouchUpInside)
+//        open.target = self.revealViewController()
+//        open.action = Selector("revealToggle:")
+        
         if(varView == 0){
             //log out of app 
         }
@@ -79,13 +81,15 @@ class CameraViewController: UIViewController {
             dispatch_async(dispatch_get_main_queue(), { // 2
                         // 3
                 self.cameraView.layer.addSublayer(previewLayer)
+                self.cameraView.addSubview(self.cameraButton)
+                self.cameraView.addSubview(self.open)
                 self.captureSession.startRunning()
                 });
             });
     }
 
-    
-    @IBAction func takePhoto(sender: UIBarButtonItem) {
+    @IBOutlet var cameraButton: UIButton!
+    @IBAction func capturePhoto(sender: UIButton) {
         var videoConnection:AVCaptureConnection?
         
         for connection in stillImageOutput.connections {
@@ -111,7 +115,36 @@ class CameraViewController: UIViewController {
                 self.captureSession.stopRunning()
             })
         }
+
     }
+    
+//    @IBAction func takePhoto(sender: UIBarButtonItem) {
+//        var videoConnection:AVCaptureConnection?
+//        
+//        for connection in stillImageOutput.connections {
+//            for port in connection.inputPorts! {
+//                if port.mediaType == AVMediaTypeVideo {
+//                    videoConnection = connection as? AVCaptureConnection
+//                    break
+//                }
+//            }
+//            if videoConnection != nil {
+//                break
+//            }
+//        }
+//        
+//        if videoConnection != nil {
+//            stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: { (buffer:CMSampleBuffer!, error:NSError!) -> Void in
+//                var image = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(buffer)
+//                var data_image = UIImage(data: image)
+//                //self.imageView.image = data_image
+//                println("YOOOO")
+//                println(data_image)
+//                self.capturedImage = data_image!
+//                self.captureSession.stopRunning()
+//            })
+//        }
+//    }
     
     @IBOutlet var chat_button: UIBarButtonItem!
     @IBAction func goToChat(sender: UIBarButtonItem) {
