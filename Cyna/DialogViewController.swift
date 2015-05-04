@@ -154,7 +154,14 @@ class DialogViewController: JSQMessagesViewController {
         self.senderDisplayName = PFUser.currentUser()!.objectForKey("name") as? String
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
-        sendUserImage(self.picture)
+        self.user_is_expert({ (active:Bool) -> () in
+            if(active){
+                //expert so dont show camera screen
+            }else {
+                //if user is not an expert
+                self.sendUserImage(self.picture)
+            }
+        })
     }
     
     
@@ -324,5 +331,22 @@ class DialogViewController: JSQMessagesViewController {
     
     return 0.0
     }
+    
+    func user_is_expert(completion:(Bool) -> ()) {
+        var currentUser = PFUser.currentUser()
+        println(currentUser?.objectId);
+        var query = PFUser.query()
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
+            //code
+            if(result!.objectForKey("account_type") as! String == "expert") {
+                completion(true)
+            }
+            else {
+                completion(false)
+            }
+            
+        })
+    }
+
 
 }

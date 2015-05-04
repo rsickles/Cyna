@@ -62,7 +62,15 @@ class CameraViewController: UIViewController {
             }
         }
         if self.captureDevice != nil {
-            beginSession()
+            self.user_is_expert({ (active:Bool) -> () in
+                if(active){
+                    //expert so dont show camera screen
+                    self.goToChat()
+                }else {
+                    //if user is not an expert
+                    self.beginSession()
+                }
+            })
         }
 }
 
@@ -147,8 +155,9 @@ class CameraViewController: UIViewController {
 //    }
     
     @IBOutlet var chat_button: UIBarButtonItem!
-    @IBAction func goToChat(sender: UIBarButtonItem) {
-        
+    func goToChat() {
+        let cameraView = self.storyboard?.instantiateViewControllerWithIdentifier("dialog") as! DialogViewController
+        self.presentViewController(cameraView, animated: true, completion: nil)
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        var dest : DialogViewController = segue.destinationViewController as! DialogViewController
@@ -167,6 +176,22 @@ class CameraViewController: UIViewController {
         var alert = UIAlertController(title: "No Picture Taken", message: "You must first take a picture before you chat with an expert.", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func user_is_expert(completion:(Bool) -> ()) {
+        var currentUser = PFUser.currentUser()
+        println(currentUser?.objectId);
+        var query = PFUser.query()
+        query!.getObjectInBackgroundWithId(currentUser?.objectId! as String!, block: { (result:PFObject?, error:NSError?) -> Void in
+            //code
+            if(result!.objectForKey("account_type") as! String == "expert") {
+                completion(true)
+            }
+            else {
+                completion(false)
+            }
+            
+        })
     }
     
 
