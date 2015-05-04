@@ -19,8 +19,8 @@ class RateViewController: UIViewController {
         
         
         // Required float rating view params
-        self.ratingView.emptyImage = UIImage(named: "EmptyStar")
-        self.ratingView.fullImage = UIImage(named: "FullStar")
+        self.ratingView.emptyImage = UIImage(named: "unfilled")
+        self.ratingView.fullImage = UIImage(named: "filled")
         // Optional params
         self.ratingView.contentMode = UIViewContentMode.ScaleAspectFit
         self.ratingView.maxRating = 5
